@@ -1,1 +1,1 @@
-# GIS-SoSe-2020
+# Kurs Grundlagen interaktiver Systeme - Valentin Schmidberger 263249
