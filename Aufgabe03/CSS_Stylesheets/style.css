@@ -1,0 +1,132 @@
+html {
+    text-align: center;
+}
+
+body {
+    width: 800px;
+    background-image: url(bg.png);
+    display: inline-block;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.topnav {
+    border: none;
+    margin-block-end: auto;
+    background-color: rgba(99, 107, 63, 0.829);
+    overflow: hidden;
+    float: right;
+    border-radius: 20px;
+}
+
+.topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.topnav a:hover {
+    background-color: rgb(99, 107, 63);
+    color: cadetblue;
+}
+
+.topnav a.active {
+    background-color: cadetblue;
+    color: black;
+}
+
+.topnav2 {
+    border: none;
+    margin-block-end: auto;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.479);
+    overflow: hidden;
+    float: center;
+    border-radius: 20px;
+}
+
+.topnav2 a {
+    float: center;
+    color: rgba(92, 92, 92, 0.472);
+    text-align: center;
+    padding: 30px 7px;
+}
+
+.topnav2 a:hover {
+    background-color: rgba(68, 68, 68, 0.452);
+    color: rgba(59, 59, 59, 0.459);
+}
+
+.halbkreis {
+    display: inline-block;
+    background: rgb(99, 107, 63);
+    height: 400px;
+    width: 750px;
+    -webkit-border-radius: 0px 0px 800px 800px;
+    -moz-border-radius: 0px 0px 800px 800px;
+    border-radius: 0px 0px 800px 800px;
+}
+
+.headline {
+    text-align: center;
+    color: white;
+}
+
+#portfolio {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 80px;
+}
+
+.button {
+    background-color: rgb(99, 107, 63);
+    border: none;
+    border-radius: 100%;
+    color: white;
+    padding: 9px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+}
+
+h2 {
+    font-size: 38px;
+}
+
+h3 {
+    text-align: left;
+}
+
+footer {
+    text-align: right;
+}
+
+hr {
+    background-color: rgb(99, 107, 63);
+    height: 5px;
+}
+
+#adresse {
+    text-align: left;
+}
+
+#rechts {
+    text-align: left;
+}
+
+.zumir {
+    background: rgba(81, 155, 133, 0.698);
+    color: white;
+    width: 100%;
+    height: 300px;
+    padding: 1px 2px 1px 2px;
+    border: 10px solid rgb(0, 0, 0);
+    margin: 1px 2px 1px 2px;
+}
+
+.aboutme {
+    color: rgb(0, 0, 0);
+}
