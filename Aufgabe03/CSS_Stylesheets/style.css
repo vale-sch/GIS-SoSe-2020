@@ -16,7 +16,7 @@ body {
     background-color: rgba(99, 107, 63, 0.829);
     overflow: hidden;
     float: right;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .topnav a {
@@ -113,7 +113,7 @@ hr {
     text-align: left;
 }
 
-#rechts {
+.rechts {
     text-align: left;
 }
 
