@@ -20,7 +20,9 @@ body {
 }
 
 .topnav a {
-    float: left;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     color: white;
     text-align: center;
     padding: 14px 16px;
