@@ -11,31 +11,31 @@ body {
 }
 
 .topnav {
-    border: none;
-    margin-block-end: auto;
-    background-color: rgba(99, 107, 63, 0.829);
-    overflow: hidden;
+    position: fixed;
     float: right;
-    border-radius: 15px;
+    right: 28%;
+    border: none;
+    background-color: transparent;
+    border-radius: 17px;
 }
 
 .topnav a {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+    float: left;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    padding: 8px 10px;
     text-decoration: none;
     font-size: 14px;
 }
 
 .topnav a:hover {
-    background-color: rgb(99, 107, 63);
-    color: cadetblue;
+    border-radius: 15px;
+    background-color: cadetblue;
+    color: rgb(255, 255, 255);
 }
 
 .topnav a.active {
+    border-radius: 15px;
     background-color: cadetblue;
     color: black;
 }
@@ -66,7 +66,7 @@ body {
     display: inline-block;
     background: rgb(99, 107, 63);
     height: 400px;
-    width: 750px;
+    width: 800px;
     -webkit-border-radius: 0px 0px 800px 800px;
     -moz-border-radius: 0px 0px 800px 800px;
     border-radius: 0px 0px 800px 800px;
