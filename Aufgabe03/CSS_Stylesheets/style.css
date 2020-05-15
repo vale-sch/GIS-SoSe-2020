@@ -40,26 +40,26 @@ body {
     color: black;
 }
 
-.topnav2 {
-    border: none;
-    margin-block-end: auto;
-    background-color: transparent;
-    color: rgba(255, 255, 255, 0.479);
-    overflow: hidden;
-    float: center;
-    border-radius: 20px;
+.icon-bar {
+    width: 90px;
+    background-color: #555;
 }
 
-.topnav2 a {
-    float: center;
-    color: rgba(92, 92, 92, 0.472);
+.icon-bar a {
+    display: block;
     text-align: center;
-    padding: 30px 7px;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
 }
 
-.topnav2 a:hover {
-    background-color: rgba(68, 68, 68, 0.452);
-    color: rgba(59, 59, 59, 0.459);
+.icon-bar a:hover {
+    background-color: #000;
+}
+
+.active {
+    background-color: #4CAF50;
 }
 
 .halbkreis {
