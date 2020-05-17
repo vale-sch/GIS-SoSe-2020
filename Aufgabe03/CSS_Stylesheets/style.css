@@ -7,7 +7,7 @@ body {
     background-image: url(bg.png);
     display: inline-block;
     text-align: center;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .topnav {
@@ -65,6 +65,7 @@ body {
 .halbkreis {
     display: inline-block;
     background: rgb(99, 107, 63);
+    color: transparent;
     height: 400px;
     width: 800px;
     -webkit-border-radius: 0px 0px 800px 800px;
@@ -78,7 +79,6 @@ body {
 }
 
 #portfolio {
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 80px;
 }
 
