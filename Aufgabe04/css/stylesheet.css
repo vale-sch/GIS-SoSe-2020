@@ -98,7 +98,7 @@ li>a:only-child:after {
 
 #master {
     position: absolute;
-    left: 3.5%;
+    left: 10%;
 }
 
 .music img {
@@ -200,12 +200,9 @@ textarea {
     left: 25%;
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 599px) {
     h1 {
-        font-size: 30px;
-    }
-    #headline {
-        font-size: 15px;
+        font-size: 20px;
     }
     #master {
         position: unset;
