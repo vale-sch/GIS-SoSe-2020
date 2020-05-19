@@ -95,6 +95,10 @@ nav a {
     text-decoration: none;
 }
 
+nav a.active {
+    background-color: #000000;
+}
+
 nav a:hover {
     background-color: #000000;
 }
@@ -162,6 +166,10 @@ h1 {
 
 #sales {
     color: gold;
+}
+
+#Favoriten {
+    color: tomato;
 }
 
 #Information {
