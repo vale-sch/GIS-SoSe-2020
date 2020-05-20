@@ -100,12 +100,12 @@ li>a:only-child:after {
 
 #masterSale {
     position: absolute;
-    left: 3.5%;
+    left: 10%;
 }
 
 #masterFavorites {
     position: absolute;
-    left: 3.5%;
+    left: 10%;
 }
 
 .music img {
@@ -207,8 +207,26 @@ textarea {
     left: 25%;
 }
 
-@media screen and (max-width:1200px) and (min-width: 600px) {
+.account {
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+    max-width: 800px;
+    max-height: 800px;
+    display: inline-block;
+    position: relative;
+    left: 35%;
+    background: transparent;
+    color: white;
+    padding: 32px 34px 32px 32px;
+    margin: 32px 34px 32px 32px;
+}
+
+@media screen and (max-width:1200px) and (min-width: 800px) {
     #masterFavorites {
+        position: relative;
+        left: 18%;
+    }
+    #masterSales {
         position: relative;
         left: 18%;
     }
@@ -218,9 +236,13 @@ textarea {
     h1 {
         line-height: 50px;
     }
+    .music {
+        max-width: 600px;
+        max-height: 600px;
+    }
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 799px) {
     h1 {
         font-size: 20px;
     }
