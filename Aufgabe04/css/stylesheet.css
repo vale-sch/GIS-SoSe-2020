@@ -96,7 +96,12 @@ li>a:only-child:after {
     margin: 8px 24px 8px 24px;
 }
 
-#master {
+#masterSale {
+    position: absolute;
+    left: 2.5%;
+}
+
+#masterFavorites {
     position: absolute;
     left: 2.5%;
 }
@@ -204,7 +209,11 @@ textarea {
     h1 {
         font-size: 20px;
     }
-    #master {
+    #masterSale {
+        position: unset;
+        display: inline-block;
+    }
+    #masterFavorites {
         position: unset;
         display: inline-block;
     }
