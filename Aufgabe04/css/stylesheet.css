@@ -62,11 +62,11 @@ nav a {
 }
 
 nav a.active {
-    background-color: #000000;
+    background-color: #212121;
 }
 
 nav a:hover {
-    background-color: #000000;
+    background-color: #212121;
 }
 
 nav ul li:hover>ul {
