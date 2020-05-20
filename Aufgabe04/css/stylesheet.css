@@ -6,7 +6,6 @@ body {
     color: #ffffff;
     margin: 0;
     padding: 0;
-    word-wrap: break-word !important;
 }
 
 a {
@@ -221,14 +220,20 @@ textarea {
     margin: 32px 34px 32px 32px;
 }
 
-@media screen and (max-width:1200px) and (min-width: 800px) {
+@media screen and (min-width:601px) and (max-width: 1200px) {
     #masterFavorites {
-        position: relative;
-        left: 18%;
+        position: unset;
+        max-width: 100%;
+        display: table;
+        left: unset;
+        margin: 0 auto;
     }
     #masterSales {
-        position: relative;
-        left: 18%;
+        position: unset;
+        max-width: 100%;
+        display: table;
+        left: unset;
+        margin: 0 auto;
     }
     #sales {
         margin-top: 10px;
@@ -237,28 +242,38 @@ textarea {
         line-height: 50px;
     }
     .music {
+        display: table;
         max-width: 600px;
         max-height: 600px;
+        padding: 16px 18px 32px 18px;
+        margin: 16px 18px 32px 18x;
     }
 }
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 600px) {
     h1 {
         font-size: 20px;
     }
-    #masterSale {
+    #masterSales {
         position: unset;
-        display: inline-block;
+        max-width: 100%;
+        display: inline-table;
         left: unset;
     }
     #masterFavorites {
         position: unset;
-        display: inline-block;
+        max-width: 100%;
+        display: inline-table;
         left: unset;
     }
     .music {
         display: inline-table;
         margin: 0 auto;
+        max-width: 100%;
+        border: unset;
+        box-shadow: unset;
+        padding: unset;
+        margin: unset;
     }
     #logo {
         display: block;
@@ -268,6 +283,7 @@ textarea {
         float: none;
     }
     nav {
+        max-width: 100%;
         margin: 0;
     }
     .toggle+a,
