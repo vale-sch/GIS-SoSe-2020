@@ -89,8 +89,8 @@ li>a:only-child:after {
 .music {
     border: 2px solid rgb(255, 255, 255);
     box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 450px;
+    max-height: 450px;
     display: inline-block;
     background: transparent;
     color: white;
@@ -105,7 +105,7 @@ li>a:only-child:after {
 
 #masterFavorites {
     position: absolute;
-    left: 2.5%;
+    left: 3.5%;
 }
 
 .music img {
@@ -205,6 +205,19 @@ textarea {
     width: 50%;
     position: relative;
     left: 25%;
+}
+
+@media screen and (max-width:1200px) and (min-width: 600px) {
+    #masterFavorites {
+        position: relative;
+        left: 18%;
+    }
+    #sales {
+        margin-top: 10px;
+    }
+    h1 {
+        line-height: 50px;
+    }
 }
 
 @media screen and (max-width: 599px) {
