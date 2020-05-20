@@ -87,16 +87,15 @@ li>a:only-child:after {
 }
 
 .music {
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 2px solid rgb(255, 255, 255);
     box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-    border-radius: 5px;
     max-width: 500px;
     max-height: 500px;
     display: inline-block;
     background: transparent;
     color: white;
-    padding: 8px 24px 8px 24px;
-    margin: 8px 24px 8px 24px;
+    padding: 32px 34px 32px 32px;
+    margin: 32px 34px 32px 32px;
 }
 
 #masterSale {
