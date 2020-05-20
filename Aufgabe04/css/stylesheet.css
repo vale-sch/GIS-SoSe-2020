@@ -249,10 +249,12 @@ textarea {
     #masterSale {
         position: unset;
         display: inline-block;
+        left: unset;
     }
     #masterFavorites {
         position: unset;
         display: inline-block;
+        left: unset;
     }
     .music {
         display: inline-table;
