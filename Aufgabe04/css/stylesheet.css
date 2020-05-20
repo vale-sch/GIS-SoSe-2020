@@ -211,13 +211,12 @@ textarea {
     box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
     max-width: 800px;
     max-height: 800px;
-    display: inline-block;
+    display: table;
     position: relative;
-    left: 35%;
     background: transparent;
+    margin: 0 auto;
     color: white;
     padding: 32px 34px 32px 32px;
-    margin: 32px 34px 32px 32px;
 }
 
 @media screen and (min-width:601px) and (max-width: 1200px) {
