@@ -86,10 +86,10 @@ nav a:hover {
 }
 
 #masterSales {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
     margin: auto;
-    width: 80%;
-    border: 1px solid #254441;
-    box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
 }
 
 #masterFavorites {
@@ -212,7 +212,7 @@ textarea {
     padding: 32px 34px 32px 32px;
 }
 
-@media screen and (min-width:601px) and (max-width: 1400px) {
+@media screen and (min-width:601px) and (max-width: 1920px) {
     #masterFavorites {
         box-shadow: unset;
         margin: unset;
