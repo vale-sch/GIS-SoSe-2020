@@ -62,7 +62,7 @@ var Aufgabe05b;
         titel: "Titel: Taboo",
         ablum: "Album: Amnesia, Taboo",
         interpret: "Interpret: Enamour",
-        audio: "musicfavorites/7.m4a",
+        audio: "musicfavorites/6a.m4a",
         preis: 0.99
     };
     let artikel08 = {
@@ -71,7 +71,7 @@ var Aufgabe05b;
         titel: "Titel: Vacant (Original Mix)",
         ablum: "Album: Modus",
         interpret: "Interpret: Daniel Di Martino",
-        audio: "musicfavorites/8.m4a",
+        audio: "musicfavorites/7.m4a",
         preis: 1.49
     };
     let artikel09 = {
@@ -80,7 +80,7 @@ var Aufgabe05b;
         titel: "Titel: Xanax (Original Mix)",
         ablum: "Album: Ethernal Techno #007",
         interpret: "Interpret: Clwz SG",
-        audio: "musicfavorites/9.m4a",
+        audio: "musicfavorites/8.m4a",
         preis: 1.99
     };
 
