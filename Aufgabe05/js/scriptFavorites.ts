@@ -123,7 +123,7 @@ var Aufgabe05b;
                 div.appendChild(pTitel).innerHTML = allSales[index].titel;
                 div.appendChild(pAlbum).innerHTML =   allSales[index].ablum;
                 div.appendChild(pInterpret).innerHTML =   allSales[index].interpret;
-                div.appendChild(audio).innerHTML = allSales[index].audio;
+                div.appendChild(audio).innerHTML = "Probe" + allSales[index].audio;
               
             }
         }
