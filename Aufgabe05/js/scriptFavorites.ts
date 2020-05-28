@@ -110,9 +110,9 @@ var Aufgabe05b;
             button.setAttribute("href", "https://vale-sch.github.io/GIS-SoSe2020/Aufgabe04/Warenkorb.htm");
             button.setAttribute("class", "fas fa-shopping-basket");
             let audio = document.createElement("audio");
-            audio.setAttribute("src", allSales[index].audio);
             audio.setAttribute("controls", "");
-            audio.setAttribute("class", "text");
+            audio.setAttribute("src", allSales[index].audio);
+            audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
             
 
