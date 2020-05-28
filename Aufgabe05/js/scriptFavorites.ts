@@ -1,7 +1,15 @@
-var Aufgabe05b;
-(function (Aufgabe05b) {
-    //#region Sortiment
-    let artikel01 = {
+namespace Abgabe05 {
+    interface Artikel {
+        showMe: boolean;
+        image: string;
+        titel: string;
+        ablum: string;
+        interpret: string;
+        audio: string;
+        preis: number;
+    }
+      //#region Sortiment
+    let artikel01: Artikel = {
         showMe: true,
         image: "Pictures/1.png",
         titel: "Titel: Action speaks louder than words",
@@ -10,7 +18,7 @@ var Aufgabe05b;
         audio: "musicfavorites/1.m4a",
         preis: 2.49
     };
-    let artikel02 = {
+    let artikel02: Artikel = {
         showMe: true,
         image: "Pictures/5.png",
         titel: "Titel: Eastern Sun (Original Mix)",
@@ -20,7 +28,7 @@ var Aufgabe05b;
         preis: 0.99
        
     };
-    let artikel03 = {
+    let artikel03: Artikel = {
         showMe: true,
         image: "Pictures/9.png",
         titel: "Titel: Illusion of us (Original Mix)",
@@ -29,7 +37,7 @@ var Aufgabe05b;
         audio: "musicfavorites/3.m4a",
         preis: 1.49
     };
-    let artikel04 = {
+    let artikel04: Artikel = {
         showMe: true,
         image: "Pictures/11.png",
         titel: "Titel: Kamel Bani",
@@ -38,7 +46,7 @@ var Aufgabe05b;
         audio: "musicfavorites/4.m4a",
         preis: 1.99
     };
-    let artikel05 = {
+    let artikel05: Artikel = {
         showMe: true,
         image: "Pictures/13.png",
         titel: "Titel: Madame",
@@ -47,7 +55,7 @@ var Aufgabe05b;
         audio: "musicfavorites/5.m4a",
         preis: 0.49
     };
-    let artikel06 = {
+    let artikel06: Artikel = {
         showMe: true,
         image: "Pictures/15.png",
         titel: "Titel: Rain Dance",
@@ -56,7 +64,7 @@ var Aufgabe05b;
         audio: "musicfavorites/6.m4a",
         preis: 1.49
     };
-    let artikel07 = {
+    let artikel07: Artikel = {
         showMe: true,
         image: "Pictures/17.png",
         titel: "Titel: Taboo",
@@ -65,7 +73,7 @@ var Aufgabe05b;
         audio: "musicfavorites/6a.m4a",
         preis: 0.99
     };
-    let artikel08 = {
+    let artikel08: Artikel = {
         showMe: true,
         image: "Pictures/19.png",
         titel: "Titel: Vacant (Original Mix)",
@@ -74,7 +82,7 @@ var Aufgabe05b;
         audio: "musicfavorites/7.m4a",
         preis: 1.49
     };
-    let artikel09 = {
+    let artikel09: Artikel = {
         showMe: true,
         image: "Pictures/21.png",
         titel: "Titel: Xanax (Original Mix)",
@@ -83,33 +91,32 @@ var Aufgabe05b;
         audio: "musicfavorites/8.m4a",
         preis: 1.99
     };
-
-
     //alle Artikel aus dem Sale
-    const allSales = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09];
+    const allSales: Artikel[] = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09];
     //DOM-Manipulation
-    const masterFavorites = document.getElementById("masterFavorites");
+    // tslint:disable-next-line: no-any
+    const masterFavorites: any = document.getElementById("masterFavorites");
     createTags();
-    function createTags() {
-        for (let index = 0; index < allSales.length; index++) {
-            let img = document.createElement("img");
+    function createTags(): void {
+        for (let index: number = 0; index < allSales.length; index++) {
+            let img: HTMLElement = document.createElement("img");
             img.setAttribute("src", allSales[index].image);
             img.setAttribute("alt", "Music Covers");
-            let div = document.createElement("div");
+            let div: HTMLElement = document.createElement("div");
             div.setAttribute("class", "music");
-            let pTitel = document.createElement("p");
+            let pTitel: HTMLElement = document.createElement("p");
             pTitel.setAttribute("class", "text");
-            let pAlbum = document.createElement("p");
+            let pAlbum: HTMLElement = document.createElement("p");
             pAlbum.setAttribute("class", "text");
-            let pInterpret = document.createElement("p");
+            let pInterpret: HTMLElement = document.createElement("p");
             pInterpret.setAttribute("class", "text");
-            let pPrice = document.createElement("p");
+            let pPrice: HTMLElement = document.createElement("p");
             pPrice.setAttribute("class", "text");
-            let button = document.createElement("a");
+            let button: HTMLElement = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
             button.setAttribute("href", "https://vale-sch.github.io/GIS-SoSe2020/Aufgabe04/Warenkorb.htm");
             button.setAttribute("class", "fas fa-shopping-basket");
-            let audio = document.createElement("audio");
+            let audio: HTMLElement = document.createElement("audio");
             audio.setAttribute("controls", "");
             audio.setAttribute("src", allSales[index].audio);
             audio.setAttribute("class", "pAudio");
@@ -123,9 +130,11 @@ var Aufgabe05b;
                 div.appendChild(pTitel).innerHTML = allSales[index].titel;
                 div.appendChild(pAlbum).innerHTML =   allSales[index].ablum;
                 div.appendChild(pInterpret).innerHTML =   allSales[index].interpret;
-                div.appendChild(audio).innerHTML = "Probe" + allSales[index].audio;
+                div.appendChild(audio).innerHTML =  allSales[index].audio;
               
             }
         }
     }
-})(Aufgabe05b || (Aufgabe05b = {}));
+}
+
+  

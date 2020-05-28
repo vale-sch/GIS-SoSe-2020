@@ -1,6 +1,6 @@
 "use strict";
-var Aufgabe05a;
-(function (Aufgabe05a) {
+var Abgabe05;
+(function (Abgabe05) {
     //#Startseite Musik Sale
     let artikel01 = {
         showMe: true,
@@ -113,7 +113,8 @@ var Aufgabe05a;
     //alle Artikel aus dem Sale
     const allSales = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12];
     //DOM-Manipulation
-    const masterSales = document.getElementById("masterSales");
+    // tslint:disable-next-line: no-any
+    const masterFavorites = document.getElementById("masterSales");
     createTags();
     function createTags() {
         for (let index = 0; index < allSales.length; index++) {
@@ -140,15 +141,15 @@ var Aufgabe05a;
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
             if (allSales[index].showMe) {
-                masterSales.appendChild(div);
+                masterFavorites.appendChild(div);
                 div.appendChild(img);
                 div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
                 div.appendChild(pTitel).innerHTML = allSales[index].titel;
                 div.appendChild(pAlbum).innerHTML = allSales[index].ablum;
                 div.appendChild(pInterpret).innerHTML = allSales[index].interpret;
-                div.appendChild(audio).innerHTML = "Probe: " + allSales[index].audio;
+                div.appendChild(audio).innerHTML = allSales[index].audio;
             }
         }
     }
-})(Aufgabe05a || (Aufgabe05a = {}));
+})(Abgabe05 || (Abgabe05 = {}));
 //# sourceMappingURL=scriptSales.js.map

@@ -1,6 +1,6 @@
 "use strict";
-var Aufgabe05b;
-(function (Aufgabe05b) {
+var Abgabe05;
+(function (Abgabe05) {
     //#region Sortiment
     let artikel01 = {
         showMe: true,
@@ -86,6 +86,7 @@ var Aufgabe05b;
     //alle Artikel aus dem Sale
     const allSales = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09];
     //DOM-Manipulation
+    // tslint:disable-next-line: no-any
     const masterFavorites = document.getElementById("masterFavorites");
     createTags();
     function createTags() {
@@ -119,9 +120,9 @@ var Aufgabe05b;
                 div.appendChild(pTitel).innerHTML = allSales[index].titel;
                 div.appendChild(pAlbum).innerHTML = allSales[index].ablum;
                 div.appendChild(pInterpret).innerHTML = allSales[index].interpret;
-                div.appendChild(audio).innerHTML = "Probe" + allSales[index].audio;
+                div.appendChild(audio).innerHTML = allSales[index].audio;
             }
         }
     }
-})(Aufgabe05b || (Aufgabe05b = {}));
+})(Abgabe05 || (Abgabe05 = {}));
 //# sourceMappingURL=scriptFavorites.js.map
