@@ -86,7 +86,9 @@ var Abgabe05;
     //alle Artikel aus dem Sale
     const allSales = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09];
     //DOM-Manipulation
-    // tslint:disable-next-line: no-any
+    // tslint:disable-next-line: no-any   
+    let artikelcontainer = document.createElement("div");
+    artikelcontainer.setAttribute("class", "masterSales");
     const masterFavorites = document.getElementById("masterFavorites");
     createTags();
     function createTags() {

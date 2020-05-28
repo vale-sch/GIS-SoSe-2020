@@ -114,7 +114,9 @@ var Abgabe05;
     const allSales = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12];
     //DOM-Manipulation
     // tslint:disable-next-line: no-any
-    const masterFavorites = document.getElementById("masterSales");
+    let artikelcontainer = document.createElement("div");
+    artikelcontainer.setAttribute("class", "masterSales");
+    const masterSales = document.getElementById("masterSales");
     createTags();
     function createTags() {
         for (let index = 0; index < allSales.length; index++) {
@@ -141,7 +143,7 @@ var Abgabe05;
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
             if (allSales[index].showMe) {
-                masterFavorites.appendChild(div);
+                masterSales.appendChild(div);
                 div.appendChild(img);
                 div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
                 div.appendChild(pTitel).innerHTML = allSales[index].titel;

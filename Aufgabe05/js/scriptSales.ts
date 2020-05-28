@@ -8,6 +8,7 @@ namespace Abgabe05 {
         audio: string;
         preis: number;
     }
+
     //#Startseite Musik Sale
     let artikel01: Artikel = {
         showMe: true,
@@ -123,7 +124,10 @@ namespace Abgabe05 {
     const allSales: Artikel[] = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12];
     //DOM-Manipulation
     // tslint:disable-next-line: no-any
-    const masterFavorites: any = document.getElementById("masterSales");
+    
+    let artikelcontainer: HTMLElement = document.createElement("div");
+    artikelcontainer.setAttribute("class", "masterSales");
+    const masterSales: any = document.getElementById("masterSales");
     createTags();
     function createTags(): void {
             for (let index: number = 0; index < allSales.length; index++) {
@@ -152,7 +156,7 @@ namespace Abgabe05 {
                 
     
                 if (allSales[index].showMe) { 
-                    masterFavorites.appendChild(div);
+                    masterSales.appendChild(div);
                     div.appendChild(img);
                     div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
                     div.appendChild(pTitel).innerHTML = allSales[index].titel;
