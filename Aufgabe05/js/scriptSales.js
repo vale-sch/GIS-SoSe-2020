@@ -114,9 +114,7 @@ var Abgabe05;
     const allSales = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12];
     //DOM-Manipulation
     // tslint:disable-next-line: no-any
-    let artikelcontainer = document.createElement("div");
-    artikelcontainer.setAttribute("class", "masterSales");
-    const masterSales = document.getElementById("masterSales");
+    let masterSales = document.getElementById("masterSales");
     createTags();
     function createTags() {
         for (let index = 0; index < allSales.length; index++) {

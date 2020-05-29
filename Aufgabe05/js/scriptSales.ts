@@ -124,12 +124,9 @@ namespace Abgabe05 {
     const allSales: Artikel[] = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12];
     //DOM-Manipulation
     // tslint:disable-next-line: no-any
-    
-    let artikelcontainer: HTMLElement = document.createElement("div");
-    artikelcontainer.setAttribute("class", "masterSales");
     const masterSales: any = document.getElementById("masterSales");
-    createTags();
-    function createTags(): void {
+    generateTags();
+    function generateTags(): void {
             for (let index: number = 0; index < allSales.length; index++) {
                 let img: HTMLElement = document.createElement("img");
                 img.setAttribute("src", allSales[index].image);
