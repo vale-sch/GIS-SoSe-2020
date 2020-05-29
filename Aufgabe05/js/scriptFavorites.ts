@@ -1,4 +1,5 @@
 namespace Abgabe05 {
+    //create interface
     interface Artikel {
         showMe: boolean;
         image: string;
@@ -91,14 +92,15 @@ namespace Abgabe05 {
         audio: "musicfavorites/8.m4a",
         preis: 1.99
     };
-    //alle Artikel aus dem Sale
+    //alle Artikel von masterFavorites
     const allSales: Artikel[] = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09];
-    //DOM-Manipulation
-    // tslint:disable-next-line: no-any   
-    const masterFavorites: any = document.getElementById("masterFavorites");
-    generateTags();
-    function generateTags(): void {
+ 
+    
+    createTags();
+    function createTags(): void {
+        
         for (let index: number = 0; index < allSales.length; index++) {
+            //Inhalte festlegen
             let img: HTMLElement = document.createElement("img");
             img.setAttribute("src", allSales[index].image);
             img.setAttribute("alt", "Music Covers");
@@ -121,18 +123,16 @@ namespace Abgabe05 {
             audio.setAttribute("src", allSales[index].audio);
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
-            
-
-            if (allSales[index].showMe) { 
-                masterFavorites.appendChild(div);
-                div.appendChild(img);
-                div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
-                div.appendChild(pTitel).innerHTML = allSales[index].titel;
-                div.appendChild(pAlbum).innerHTML =   allSales[index].ablum;
-                div.appendChild(pInterpret).innerHTML =   allSales[index].interpret;
-                div.appendChild(audio).innerHTML =  allSales[index].audio;
+            //Inhalte generieren 
+            document.getElementById("masterFavorites")?.appendChild(div);
+            div.appendChild(img);
+            div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
+            div.appendChild(pTitel).innerHTML = allSales[index].titel;
+            div.appendChild(pAlbum).innerHTML =   allSales[index].ablum;
+            div.appendChild(pInterpret).innerHTML =   allSales[index].interpret;
+            div.appendChild(audio).innerHTML =  allSales[index].audio;
               
-            }
+            
         }
     }
 }

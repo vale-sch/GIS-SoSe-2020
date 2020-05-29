@@ -27,7 +27,7 @@ namespace Abgabe05 {
         interpret: "Interpret: OC&Verde",
         preis: 0.99,
         audio: "music/2.m4a"
-       
+
     };
     let artikel03: Artikel = {
         showMe: true,
@@ -122,46 +122,44 @@ namespace Abgabe05 {
 
     //alle Artikel aus dem Sale
     const allSales: Artikel[] = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12];
-    //DOM-Manipulation
-    // tslint:disable-next-line: no-any
-    const masterSales: any = document.getElementById("masterSales");
+  
+
     generateTags();
     function generateTags(): void {
-            for (let index: number = 0; index < allSales.length; index++) {
-                let img: HTMLElement = document.createElement("img");
-                img.setAttribute("src", allSales[index].image);
-                img.setAttribute("alt", "Music Covers");
-                let div: HTMLElement = document.createElement("div");
-                div.setAttribute("class", "music");
-                let pTitel: HTMLElement = document.createElement("p");
-                pTitel.setAttribute("class", "text");
-                let pAlbum: HTMLElement = document.createElement("p");
-                pAlbum.setAttribute("class", "text");
-                let pInterpret: HTMLElement = document.createElement("p");
-                pInterpret.setAttribute("class", "text");
-                let pPrice: HTMLElement = document.createElement("p");
-                pPrice.setAttribute("class", "text");
-                let button: HTMLElement = document.createElement("a");
-                button.setAttribute("title", "Ab in den Warenkorb!");
-                button.setAttribute("href", "https://vale-sch.github.io/GIS-SoSe2020/Aufgabe04/Warenkorb.htm");
-                button.setAttribute("class", "fas fa-shopping-basket");
-                let audio: HTMLElement = document.createElement("audio");
-                audio.setAttribute("controls", "");
-                audio.setAttribute("src", allSales[index].audio);
-                audio.setAttribute("class", "pAudio");
-                audio.setAttribute("alt", "Audio Lines");
-                
-    
-                if (allSales[index].showMe) { 
-                    masterSales.appendChild(div);
-                    div.appendChild(img);
-                    div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
-                    div.appendChild(pTitel).innerHTML = allSales[index].titel;
-                    div.appendChild(pAlbum).innerHTML =   allSales[index].ablum;
-                    div.appendChild(pInterpret).innerHTML =   allSales[index].interpret;
-                    div.appendChild(audio).innerHTML =  allSales[index].audio;
-                  
-                }
-            }
+        
+        for (let index: number = 0; index < allSales.length; index++) {
+             //Inhalte festlegen
+            let img: HTMLElement = document.createElement("img");
+            img.setAttribute("src", allSales[index].image);
+            img.setAttribute("alt", "Music Covers");
+            let div: HTMLElement = document.createElement("div");
+            div.setAttribute("class", "music");
+            let pTitel: HTMLElement = document.createElement("p");
+            pTitel.setAttribute("class", "text");
+            let pAlbum: HTMLElement = document.createElement("p");
+            pAlbum.setAttribute("class", "text");
+            let pInterpret: HTMLElement = document.createElement("p");
+            pInterpret.setAttribute("class", "text");
+            let pPrice: HTMLElement = document.createElement("p");
+            pPrice.setAttribute("class", "text");
+            let button: HTMLElement = document.createElement("a");
+            button.setAttribute("title", "Ab in den Warenkorb!");
+            button.setAttribute("href", "https://vale-sch.github.io/GIS-SoSe2020/Aufgabe04/Warenkorb.htm");
+            button.setAttribute("class", "fas fa-shopping-basket");
+            let audio: HTMLElement = document.createElement("audio");
+            audio.setAttribute("controls", "");
+            audio.setAttribute("src", allSales[index].audio);
+            audio.setAttribute("class", "pAudio");
+            audio.setAttribute("alt", "Audio Lines");
+            //Inhalte generieren
+            document.getElementById("masterSales")?.appendChild(div);
+            div.appendChild(img);
+            div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
+            div.appendChild(pTitel).innerHTML = allSales[index].titel;
+            div.appendChild(pAlbum).innerHTML = allSales[index].ablum;
+            div.appendChild(pInterpret).innerHTML = allSales[index].interpret;
+            div.appendChild(audio).innerHTML = allSales[index].audio;
+
         }
     }
+}

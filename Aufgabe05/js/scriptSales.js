@@ -112,12 +112,10 @@ var Abgabe05;
     };
     //alle Artikel aus dem Sale
     const allSales = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12];
-    //DOM-Manipulation
-    // tslint:disable-next-line: no-any
-    let masterSales = document.getElementById("masterSales");
-    createTags();
-    function createTags() {
+    generateTags();
+    function generateTags() {
         for (let index = 0; index < allSales.length; index++) {
+            //Inhalte festlegen
             let img = document.createElement("img");
             img.setAttribute("src", allSales[index].image);
             img.setAttribute("alt", "Music Covers");
@@ -140,15 +138,14 @@ var Abgabe05;
             audio.setAttribute("src", allSales[index].audio);
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
-            if (allSales[index].showMe) {
-                masterSales.appendChild(div);
-                div.appendChild(img);
-                div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
-                div.appendChild(pTitel).innerHTML = allSales[index].titel;
-                div.appendChild(pAlbum).innerHTML = allSales[index].ablum;
-                div.appendChild(pInterpret).innerHTML = allSales[index].interpret;
-                div.appendChild(audio).innerHTML = allSales[index].audio;
-            }
+            //Inhalte generieren
+            document.getElementById("masterSales")?.appendChild(div);
+            div.appendChild(img);
+            div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
+            div.appendChild(pTitel).innerHTML = allSales[index].titel;
+            div.appendChild(pAlbum).innerHTML = allSales[index].ablum;
+            div.appendChild(pInterpret).innerHTML = allSales[index].interpret;
+            div.appendChild(audio).innerHTML = allSales[index].audio;
         }
     }
 })(Abgabe05 || (Abgabe05 = {}));
