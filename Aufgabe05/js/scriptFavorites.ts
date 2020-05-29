@@ -1,5 +1,5 @@
 namespace Abgabe05 {
-    //create interface
+     //Attribute erstellen
     interface Artikel {
         showMe: boolean;
         image: string;
@@ -9,7 +9,7 @@ namespace Abgabe05 {
         audio: string;
         preis: number;
     }
-      //#region Sortiment
+        //Artikel Musik Favorites
     let artikel01: Artikel = {
         showMe: true,
         image: "Pictures/1.png",
@@ -98,7 +98,7 @@ namespace Abgabe05 {
     
     createTags();
     function createTags(): void {
-        
+
         for (let index: number = 0; index < allSales.length; index++) {
             //Inhalte festlegen
             let img: HTMLElement = document.createElement("img");

@@ -1,4 +1,5 @@
 namespace Abgabe05 {
+    //Attribute erstellen
     interface Artikel {
         showMe: boolean;
         image: string;
@@ -9,7 +10,7 @@ namespace Abgabe05 {
         preis: number;
     }
 
-    //#Startseite Musik Sale
+    //Artikel Musik Sale
     let artikel01: Artikel = {
         showMe: true,
         image: "Pictures/2.png",

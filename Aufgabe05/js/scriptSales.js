@@ -1,7 +1,7 @@
 "use strict";
 var Abgabe05;
 (function (Abgabe05) {
-    //#Startseite Musik Sale
+    //Artikel Musik Sale
     let artikel01 = {
         showMe: true,
         image: "Pictures/2.png",
