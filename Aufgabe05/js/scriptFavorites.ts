@@ -123,6 +123,8 @@ namespace Abgabe05 {
             audio.setAttribute("src", allSales[index].audio);
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
+           
+           
             //Inhalte generieren 
             document.getElementById("masterFavorites")?.appendChild(div);
             div.appendChild(img);

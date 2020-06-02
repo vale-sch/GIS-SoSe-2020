@@ -129,7 +129,8 @@ namespace Abgabe05 {
     function generateTags(): void {
         
         for (let index: number = 0; index < allSales.length; index++) {
-             //Inhalte festlegen
+            
+            //Inhalte festlegen
             let img: HTMLElement = document.createElement("img");
             img.setAttribute("src", allSales[index].image);
             img.setAttribute("alt", "Music Covers");
@@ -152,6 +153,8 @@ namespace Abgabe05 {
             audio.setAttribute("src", allSales[index].audio);
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
+            
+            
             //Inhalte generieren
             document.getElementById("masterSales")?.appendChild(div);
             div.appendChild(img);
