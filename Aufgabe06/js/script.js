@@ -1,24 +1,15 @@
-namespace Abgabe05 {
+"use strict";
+var Abgabe05;
+(function (Abgabe05) {
     window.addEventListener("load", init);
-    let articleCounter: number = 0;
-    let articlePriceCounter: number = 0;
-    let saleDiv: HTMLDivElement;
-    let favoritesDiv: HTMLDivElement;
-    let hideHeadlineFav: HTMLHeadingElement;
-    let hideHeadlineSal: HTMLHeadingElement;
-    //Attribute erstellen
-    interface Artikel {
-        showMe: boolean;
-        image: string;
-        titel: string;
-        ablum: string;
-        interpret: string;
-        audio: string;
-        preis: number;
-    }
-
+    let articleCounter = 0;
+    let articlePriceCounter = 0;
+    let saleDiv;
+    let favoritesDiv;
+    let hideHeadlineFav;
+    let hideHeadlineSal;
     //Artikel Musik Sale
-    let artikel01: Artikel = {
+    let artikel01 = {
         showMe: true,
         image: "Pictures/2.png",
         titel: "Titel: B.A.X",
@@ -27,7 +18,7 @@ namespace Abgabe05 {
         preis: 2.49,
         audio: "music/1.m4a"
     };
-    let artikel02: Artikel = {
+    let artikel02 = {
         showMe: true,
         image: "Pictures/4.png",
         titel: "Titel: Dagger",
@@ -35,9 +26,8 @@ namespace Abgabe05 {
         interpret: "Interpret: OC&Verde",
         preis: 0.99,
         audio: "music/2.m4a"
-
     };
-    let artikel03: Artikel = {
+    let artikel03 = {
         showMe: true,
         image: "Pictures/6.png",
         titel: "Titel: Fades (Original Mix)",
@@ -46,7 +36,7 @@ namespace Abgabe05 {
         preis: 1.49,
         audio: "music/3.m4a"
     };
-    let artikel04: Artikel = {
+    let artikel04 = {
         showMe: true,
         image: "Pictures/8.png",
         titel: "Titel: Hangdrum (Extended Mix)",
@@ -55,7 +45,7 @@ namespace Abgabe05 {
         preis: 1.99,
         audio: "music/4.m4a"
     };
-    let artikel05: Artikel = {
+    let artikel05 = {
         showMe: true,
         image: "Pictures/10.png",
         titel: "Titel: Jado (Original Mix)",
@@ -64,7 +54,7 @@ namespace Abgabe05 {
         audio: "music/5.m4a",
         preis: 0.49
     };
-    let artikel06: Artikel = {
+    let artikel06 = {
         showMe: true,
         image: "Pictures/12.png",
         titel: "Titel: La Nuit Sans Fin",
@@ -73,7 +63,7 @@ namespace Abgabe05 {
         audio: "music/6.m4a",
         preis: 1.49
     };
-    let artikel07: Artikel = {
+    let artikel07 = {
         showMe: true,
         image: "Pictures/14.png",
         titel: "Titel: Nature",
@@ -82,7 +72,7 @@ namespace Abgabe05 {
         audio: "music/7.m4a",
         preis: 0.99
     };
-    let artikel08: Artikel = {
+    let artikel08 = {
         showMe: true,
         image: "Pictures/16.png",
         titel: "Titel: Sagna (Original Mix)",
@@ -91,7 +81,7 @@ namespace Abgabe05 {
         audio: "music/8.m4a",
         preis: 1.49
     };
-    let artikel09: Artikel = {
+    let artikel09 = {
         showMe: true,
         image: "Pictures/18.png",
         titel: "Titel: Olson (Original Mix)",
@@ -100,7 +90,7 @@ namespace Abgabe05 {
         audio: "music/9.m4a",
         preis: 1.99
     };
-    let artikel10: Artikel = {
+    let artikel10 = {
         showMe: true,
         image: "Pictures/20.png",
         titel: "Titel: Wahah",
@@ -109,7 +99,7 @@ namespace Abgabe05 {
         audio: "music/10.m4a",
         preis: 0.99
     };
-    let artikel11: Artikel = {
+    let artikel11 = {
         showMe: true,
         image: "Pictures/22.png",
         titel: "Titel: Oppression",
@@ -118,7 +108,7 @@ namespace Abgabe05 {
         audio: "music/11.m4a",
         preis: 2.99
     };
-    let artikel12: Artikel = {
+    let artikel12 = {
         showMe: true,
         image: "Pictures/24.png",
         titel: "Titel: Oasis (Timo Maas 2020 Remix)",
@@ -128,7 +118,7 @@ namespace Abgabe05 {
         preis: 1.49
     };
     //Artikel Musik Favorites
-    let artikel13: Artikel = {
+    let artikel13 = {
         showMe: true,
         image: "Pictures/1.png",
         titel: "Titel: Action speaks louder than words",
@@ -137,7 +127,7 @@ namespace Abgabe05 {
         audio: "musicfavorites/1.m4a",
         preis: 2.49
     };
-    let artikel14: Artikel = {
+    let artikel14 = {
         showMe: true,
         image: "Pictures/5.png",
         titel: "Titel: Eastern Sun (Original Mix)",
@@ -145,9 +135,8 @@ namespace Abgabe05 {
         interpret: "Interpret: De Montero",
         audio: "musicfavorites/2.m4a",
         preis: 0.99
-
     };
-    let artikel15: Artikel = {
+    let artikel15 = {
         showMe: true,
         image: "Pictures/9.png",
         titel: "Titel: Illusion of us (Original Mix)",
@@ -156,7 +145,7 @@ namespace Abgabe05 {
         audio: "musicfavorites/3.m4a",
         preis: 1.49
     };
-    let artikel16: Artikel = {
+    let artikel16 = {
         showMe: true,
         image: "Pictures/11.png",
         titel: "Titel: Kamel Bani",
@@ -165,7 +154,7 @@ namespace Abgabe05 {
         audio: "musicfavorites/4.m4a",
         preis: 1.99
     };
-    let artikel17: Artikel = {
+    let artikel17 = {
         showMe: true,
         image: "Pictures/13.png",
         titel: "Titel: Madame",
@@ -174,7 +163,7 @@ namespace Abgabe05 {
         audio: "musicfavorites/5.m4a",
         preis: 0.49
     };
-    let artikel18: Artikel = {
+    let artikel18 = {
         showMe: true,
         image: "Pictures/15.png",
         titel: "Titel: Rain Dance",
@@ -183,7 +172,7 @@ namespace Abgabe05 {
         audio: "musicfavorites/6.m4a",
         preis: 1.49
     };
-    let artikel19: Artikel = {
+    let artikel19 = {
         showMe: true,
         image: "Pictures/17.png",
         titel: "Titel: Taboo",
@@ -192,7 +181,7 @@ namespace Abgabe05 {
         audio: "musicfavorites/6a.m4a",
         preis: 0.99
     };
-    let artikel20: Artikel = {
+    let artikel20 = {
         showMe: true,
         image: "Pictures/19.png",
         titel: "Titel: Vacant (Original Mix)",
@@ -201,7 +190,7 @@ namespace Abgabe05 {
         audio: "musicfavorites/7.m4a",
         preis: 1.49
     };
-    let artikel21: Artikel = {
+    let artikel21 = {
         showMe: true,
         image: "Pictures/21.png",
         titel: "Titel: Xanax (Original Mix)",
@@ -210,155 +199,113 @@ namespace Abgabe05 {
         audio: "musicfavorites/8.m4a",
         preis: 1.99
     };
-
-
-
     //alle Artikel aus dem Sale
-    const allSales: Artikel[] = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12];
-
+    const allSales = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12];
     //alle Artikel von masterFavorites
-    const allFavorites: Artikel[] = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21];
-
+    const allFavorites = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21];
     //Kategorie 1
-    function init(_event: Event): void {
+    function init(_event) {
         generateSales();
         generateFavorites();
-
-        hideHeadlineFav = <HTMLHeadingElement>document.querySelector("#Favoriten");
-        hideHeadlineSal = <HTMLHeadingElement>document.querySelector("#sales");
-
+        hideHeadlineFav = document.querySelector("#Favoriten");
+        hideHeadlineSal = document.querySelector("#sales");
         loadNavListeners();
-
-
-
     }
-
-    function generateSales(): void {
-        saleDiv = <HTMLDivElement>document.querySelector("#sales + div");
+    function generateSales() {
+        saleDiv = document.querySelector("#sales + div");
         saleDiv.setAttribute("id", "masterSales");
-
-        for (let index: number = 0; index < allSales.length; index++) {
-
+        for (let index = 0; index < allSales.length; index++) {
             //Inhalte/Attribute festlegen
-
-
             //Inhalte festlegen//div-element
-
-            let divMusic: HTMLElement = document.createElement("div");
+            let divMusic = document.createElement("div");
             divMusic.setAttribute("class", "music");
             //Inahltefestlegen//Pictures
-            let img: HTMLElement = document.createElement("img");
+            let img = document.createElement("img");
             img.setAttribute("src", allSales[index].image);
             img.setAttribute("alt", "Music Covers");
             //Inhalte festlegen//Beschreibungen
-            let pTitel: HTMLElement = document.createElement("p");
+            let pTitel = document.createElement("p");
             pTitel.setAttribute("class", "text");
-            let pAlbum: HTMLElement = document.createElement("p");
+            let pAlbum = document.createElement("p");
             pAlbum.setAttribute("class", "text");
-            let pInterpret: HTMLElement = document.createElement("p");
+            let pInterpret = document.createElement("p");
             pInterpret.setAttribute("class", "text");
-            let pPrice: HTMLElement = document.createElement("p");
+            let pPrice = document.createElement("p");
             pPrice.setAttribute("class", "text");
-
             //Inhalte festlegen//Warenkorb icon
-            let button: HTMLElement = document.createElement("a");
+            let button = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
             button.addEventListener("click", onClickButton.bind(allSales[index]));
             button.setAttribute("class", "fas fa-shopping-basket");
-
             //Inhalte festlegen//Audios
-            let audio: HTMLElement = document.createElement("audio");
+            let audio = document.createElement("audio");
             audio.setAttribute("controls", "");
             audio.setAttribute("src", allSales[index].audio);
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
-
-
             //Inhalte generieren
             //Inhalte generieren//Pictures
-
             saleDiv.appendChild(divMusic);
             divMusic.appendChild(img);
-
             //Inhalte generieren//Warenkorb
             divMusic.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
-
             //Inhalte generieren//Beschreibungen
             divMusic.appendChild(pTitel).innerHTML = allSales[index].titel;
             divMusic.appendChild(pAlbum).innerHTML = allSales[index].ablum;
             divMusic.appendChild(pInterpret).innerHTML = allSales[index].interpret;
-
             //Inhalte generieren//Audio
             divMusic.appendChild(audio).innerHTML = allSales[index].audio;
-
-
         }
     }
-
     //Kategorie 2
-    function generateFavorites(): void {
-        favoritesDiv = <HTMLDivElement>document.querySelector("#Favoriten + div");
+    function generateFavorites() {
+        favoritesDiv = document.querySelector("#Favoriten + div");
         favoritesDiv.setAttribute("id", "masterFavorites");
-        for (let index: number = 0; index < allFavorites.length; index++) {
-
+        for (let index = 0; index < allFavorites.length; index++) {
             //Inhalte/Attribute festlegen//Pictures
-            let img: HTMLElement = document.createElement("img");
+            let img = document.createElement("img");
             img.setAttribute("src", allFavorites[index].image);
             img.setAttribute("alt", "Music Covers");
-
             //Inhalte festlegen//div-element
-
-            let div: HTMLElement = document.createElement("div");
+            let div = document.createElement("div");
             div.setAttribute("class", "music");
-
             //Inhalte festlegen//Beschreibungen
-            let pTitel: HTMLElement = document.createElement("p");
+            let pTitel = document.createElement("p");
             pTitel.setAttribute("class", "text");
-            let pAlbum: HTMLElement = document.createElement("p");
+            let pAlbum = document.createElement("p");
             pAlbum.setAttribute("class", "text");
-            let pInterpret: HTMLElement = document.createElement("p");
+            let pInterpret = document.createElement("p");
             pInterpret.setAttribute("class", "text");
-            let pPrice: HTMLElement = document.createElement("p");
+            let pPrice = document.createElement("p");
             pPrice.setAttribute("class", "text");
-
             //Inhalte festlegen//Warenkorb icon
-            let button: HTMLElement = document.createElement("a");
+            let button = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
             button.addEventListener("click", onClickButton.bind(allFavorites[index]));
             button.setAttribute("class", "fas fa-shopping-basket");
-
             //Inhalte festlegen//Audios
-            let audio: HTMLElement = document.createElement("audio");
+            let audio = document.createElement("audio");
             audio.setAttribute("controls", "");
             audio.setAttribute("src", allFavorites[index].audio);
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
-
-
             //Inhalte generieren//Pictures
             favoritesDiv.appendChild(div);
             div.appendChild(img);
-
             //Inhalte generieren//Warenkorb
             div.appendChild(button).innerHTML = "Preis: " + allFavorites[index].preis + "€";
-
             //Inhalte generieren//Beschreibungen
             div.appendChild(pTitel).innerHTML = allFavorites[index].titel;
             div.appendChild(pAlbum).innerHTML = allFavorites[index].ablum;
             div.appendChild(pInterpret).innerHTML = allFavorites[index].interpret;
-
             //Inhalte generieren//Audio
             div.appendChild(audio).innerHTML = allFavorites[index].audio;
-
-
         }
-
     }
-    function onClickButton(this: Artikel, _click: MouseEvent): void {
-
+    function onClickButton(_click) {
         articlePriceCounter += this.preis;
         console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
-        let basketNumber: HTMLElement = <HTMLElement>document.querySelector("li:last-child a");
+        let basketNumber = document.querySelector("li:last-child a");
         articleCounter++;
         if (articlePriceCounter > 0) {
             basketNumber.innerHTML = "Warenkorb: " + articleCounter;
@@ -366,58 +313,45 @@ namespace Abgabe05 {
         else {
             basketNumber.innerHTML = "Warenkorb: ";
         }
-
-
     }
-    function loadNavListeners(): void {
-        let navLi: HTMLAnchorElement;
-
-        for (let index: number = 1; index < 4; index++) {
-            navLi = <HTMLAnchorElement>document.querySelector(".menu li:nth-child(" + index + ") a");
+    function loadNavListeners() {
+        let navLi;
+        for (let index = 1; index < 4; index++) {
+            navLi = document.querySelector(".menu li:nth-child(" + index + ") a");
             navLi.addEventListener("click", onClickNavBar.bind(navLi));
-
         }
-
-
     }
-    function onClickNavBar(this: HTMLAnchorElement, _click: MouseEvent): void {
-
-
-        let onClick: String = <String>this.getAttribute("href");
+    function onClickNavBar(_click) {
+        let onClick = this.getAttribute("href");
         switch (onClick) {
-            case "#Everything": showEverthing();
-                                break;
-            case "#Sales": showSales();
-                           break;
-            case "#Favoriten": showFavorites();
-                               break;
+            case "#Everything":
+                showEverthing();
+                break;
+            case "#Sales":
+                showSales();
+                break;
+            case "#Favoriten":
+                showFavorites();
+                break;
         }
     }
-
-
-    function showEverthing(): void {
-
+    function showEverthing() {
         saleDiv.style.display = "grid";
         favoritesDiv.style.display = "grid";
-
         hideHeadlineFav.style.display = "block";
         hideHeadlineSal.style.display = "block";
-
-
     }
-    function showSales(): void {
+    function showSales() {
         saleDiv.style.display = "grid";
         favoritesDiv.style.display = "none";
-
         hideHeadlineSal.style.display = "block";
         hideHeadlineFav.style.display = "none";
-
     }
-    function showFavorites(): void {
+    function showFavorites() {
         saleDiv.style.display = "none";
         favoritesDiv.style.display = "grid";
-
         hideHeadlineFav.style.display = "block";
         hideHeadlineSal.style.display = "none";
     }
-}
+})(Abgabe05 || (Abgabe05 = {}));
+//# sourceMappingURL=script.js.map
