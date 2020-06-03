@@ -1,4 +1,11 @@
 namespace Abgabe05 {
+    window.addEventListener("load", init);
+    let articleCounter: number = 0;
+    let articlePriceCounter: number = 0;
+    let saleDiv: HTMLDivElement;
+    let favoritesDiv: HTMLDivElement;
+    let hideHeadlineFav: HTMLHeadingElement;
+    let hideHeadlineSal: HTMLHeadingElement;
     //Attribute erstellen
     interface Artikel {
         showMe: boolean;
@@ -213,19 +220,94 @@ namespace Abgabe05 {
     const allFavorites: Artikel[] = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21];
 
     //Kategorie 1
-    generateSales();
+    function init(_event: Event): void {
+        generateSales();
+        generateFavorites();
+
+        hideHeadlineFav = <HTMLHeadingElement>document.querySelector("#Favoriten");
+        hideHeadlineSal = <HTMLHeadingElement>document.querySelector("#sales");
+
+        loadNavListeners();
+
+
+
+    }
 
     function generateSales(): void {
+        saleDiv = <HTMLDivElement>document.querySelector("#sales + div");
+        saleDiv.setAttribute("id", "masterSales");
 
         for (let index: number = 0; index < allSales.length; index++) {
 
             //Inhalte/Attribute festlegen
+
+
+            //Inhalte festlegen//div-element
+
+            let divMusic: HTMLElement = document.createElement("div");
+            divMusic.setAttribute("class", "music");
             //Inahltefestlegen//Pictures
             let img: HTMLElement = document.createElement("img");
             img.setAttribute("src", allSales[index].image);
             img.setAttribute("alt", "Music Covers");
+            //Inhalte festlegen//Beschreibungen
+            let pTitel: HTMLElement = document.createElement("p");
+            pTitel.setAttribute("class", "text");
+            let pAlbum: HTMLElement = document.createElement("p");
+            pAlbum.setAttribute("class", "text");
+            let pInterpret: HTMLElement = document.createElement("p");
+            pInterpret.setAttribute("class", "text");
+            let pPrice: HTMLElement = document.createElement("p");
+            pPrice.setAttribute("class", "text");
+
+            //Inhalte festlegen//Warenkorb icon
+            let button: HTMLElement = document.createElement("a");
+            button.setAttribute("title", "Ab in den Warenkorb!");
+            button.addEventListener("click", onClickButton.bind(allSales[index]));
+            button.setAttribute("class", "fas fa-shopping-basket");
+
+            //Inhalte festlegen//Audios
+            let audio: HTMLElement = document.createElement("audio");
+            audio.setAttribute("controls", "");
+            audio.setAttribute("src", allSales[index].audio);
+            audio.setAttribute("class", "pAudio");
+            audio.setAttribute("alt", "Audio Lines");
+
+
+            //Inhalte generieren
+            //Inhalte generieren//Pictures
+
+            saleDiv.appendChild(divMusic);
+            divMusic.appendChild(img);
+
+            //Inhalte generieren//Warenkorb
+            divMusic.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
+
+            //Inhalte generieren//Beschreibungen
+            divMusic.appendChild(pTitel).innerHTML = allSales[index].titel;
+            divMusic.appendChild(pAlbum).innerHTML = allSales[index].ablum;
+            divMusic.appendChild(pInterpret).innerHTML = allSales[index].interpret;
+
+            //Inhalte generieren//Audio
+            divMusic.appendChild(audio).innerHTML = allSales[index].audio;
+
+
+        }
+    }
+
+    //Kategorie 2
+    function generateFavorites(): void {
+        favoritesDiv = <HTMLDivElement>document.querySelector("#Favoriten + div");
+        favoritesDiv.setAttribute("id", "masterFavorites");
+        for (let index: number = 0; index < allFavorites.length; index++) {
+
+            //Inhalte/Attribute festlegen//Pictures
+            let img: HTMLElement = document.createElement("img");
+            img.setAttribute("src", allFavorites[index].image);
+            img.setAttribute("alt", "Music Covers");
 
             //Inhalte festlegen//div-element
+
             let div: HTMLElement = document.createElement("div");
             div.setAttribute("class", "music");
 
@@ -242,94 +324,100 @@ namespace Abgabe05 {
             //Inhalte festlegen//Warenkorb icon
             let button: HTMLElement = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
-            button.setAttribute("href", "https://vale-sch.github.io/GIS-SoSe2020/Aufgabe04/Warenkorb.htm");
-            button.setAttribute("id", "basket");
+            button.addEventListener("click", onClickButton.bind(allFavorites[index]));
             button.setAttribute("class", "fas fa-shopping-basket");
 
             //Inhalte festlegen//Audios
             let audio: HTMLElement = document.createElement("audio");
             audio.setAttribute("controls", "");
-            audio.setAttribute("src", allSales[index].audio);
+            audio.setAttribute("src", allFavorites[index].audio);
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
 
 
-            //Inhalte generieren
             //Inhalte generieren//Pictures
-            document.getElementById("masterSales")?.appendChild(div);
+            favoritesDiv.appendChild(div);
             div.appendChild(img);
 
             //Inhalte generieren//Warenkorb
-            div.appendChild(button).innerHTML = "Preis: " + allSales[index].preis + "€";
+            div.appendChild(button).innerHTML = "Preis: " + allFavorites[index].preis + "€";
 
             //Inhalte generieren//Beschreibungen
-            div.appendChild(pTitel).innerHTML = allSales[index].titel;
-            div.appendChild(pAlbum).innerHTML = allSales[index].ablum;
-            div.appendChild(pInterpret).innerHTML = allSales[index].interpret;
+            div.appendChild(pTitel).innerHTML = allFavorites[index].titel;
+            div.appendChild(pAlbum).innerHTML = allFavorites[index].ablum;
+            div.appendChild(pInterpret).innerHTML = allFavorites[index].interpret;
 
             //Inhalte generieren//Audio
-            div.appendChild(audio).innerHTML = allSales[index].audio;
+            div.appendChild(audio).innerHTML = allFavorites[index].audio;
 
 
         }
-        //Kategorie 2
-        generateFavorites();
-        function generateFavorites(): void {
 
-            for (let index: number = 0; index < allFavorites.length; index++) {
+    }
+    function onClickButton(this: Artikel, _click: MouseEvent): void {
 
-                //Inhalte/Attribute festlegen//Pictures
-                let img: HTMLElement = document.createElement("img");
-                img.setAttribute("src", allFavorites[index].image);
-                img.setAttribute("alt", "Music Covers");
-
-                //Inhalte festlegen//div-element
-                let div: HTMLElement = document.createElement("div");
-                div.setAttribute("class", "music");
-
-                //Inhalte festlegen//Beschreibungen
-                let pTitel: HTMLElement = document.createElement("p");
-                pTitel.setAttribute("class", "text");
-                let pAlbum: HTMLElement = document.createElement("p");
-                pAlbum.setAttribute("class", "text");
-                let pInterpret: HTMLElement = document.createElement("p");
-                pInterpret.setAttribute("class", "text");
-                let pPrice: HTMLElement = document.createElement("p");
-                pPrice.setAttribute("class", "text");
-
-                //Inhalte festlegen//Warenkorb icon
-                let button: HTMLElement = document.createElement("a");
-                button.setAttribute("title", "Ab in den Warenkorb!");
-                button.setAttribute("href", "https://vale-sch.github.io/GIS-SoSe2020/Aufgabe04/Warenkorb.htm");
-                button.setAttribute("id","basket");
-                button.setAttribute("class", "fas fa-shopping-basket");
-
-                //Inhalte festlegen//Audios
-                let audio: HTMLElement = document.createElement("audio");
-                audio.setAttribute("controls", "");
-                audio.setAttribute("src", allFavorites[index].audio);
-                audio.setAttribute("class", "pAudio");
-                audio.setAttribute("alt", "Audio Lines");
-
-
-                //Inhalte generieren//Pictures
-                document.getElementById("masterFavorites")?.appendChild(div);
-                div.appendChild(img);
-
-                //Inhalte generieren//Warenkorb
-                div.appendChild(button).innerHTML = "Preis: " + allFavorites[index].preis + "€";
-                
-                //Inhalte generieren//Beschreibungen
-                div.appendChild(pTitel).innerHTML = allFavorites[index].titel;
-                div.appendChild(pAlbum).innerHTML = allFavorites[index].ablum;
-                div.appendChild(pInterpret).innerHTML = allFavorites[index].interpret;
-
-                //Inhalte generieren//Audio
-                div.appendChild(audio).innerHTML = allFavorites[index].audio;
-
-
-            }
-            
+        articlePriceCounter += this.preis;
+        console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
+        let basketNumber: HTMLElement = <HTMLElement>document.querySelector("li:last-child a");
+        articleCounter++;
+        if (articlePriceCounter > 0) {
+            basketNumber.innerHTML = "Warenkorb: " + articleCounter;
         }
+        else {
+            basketNumber.innerHTML = "Warenkorb: ";
+        }
+
+
+    }
+    function loadNavListeners(): void {
+        let navLi: HTMLAnchorElement;
+
+        for (let index: number = 1; index < 4; index++) {
+            navLi = <HTMLAnchorElement>document.querySelector(".menu li:nth-child(" + index + ") a");
+            navLi.addEventListener("click", onClickNavBar.bind(navLi));
+
+        }
+
+
+    }
+    function onClickNavBar(this: HTMLAnchorElement, _click: MouseEvent): void {
+
+
+        let onClick: String = <String>this.getAttribute("href");
+        switch (onClick) {
+            case "#Everything": showEverthing();
+                break;
+            case "#Sales": showSales();
+                break;
+            case "#Favoriten": showFavorites();
+                break;
+        }
+    }
+
+
+    function showEverthing(): void {
+
+        saleDiv.style.display = "grid";
+        favoritesDiv.style.display = "grid";
+
+        hideHeadlineFav.style.display = "block";
+        hideHeadlineSal.style.display = "block";
+
+
+    }
+    function showSales(): void {
+        saleDiv.style.display = "grid";
+        favoritesDiv.style.display = "none";
+
+        hideHeadlineSal.style.display = "block";
+        hideHeadlineFav.style.display = "none";
+
+    }
+    function showFavorites(): void {
+        saleDiv.style.display = "none";
+        favoritesDiv.style.display = "grid";
+
+        hideHeadlineFav.style.display = "block";
+        hideHeadlineSal.style.display = "none";
     }
 }

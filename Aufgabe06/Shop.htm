@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/stylesheet.css">
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js"></script>
     <script src="https://kit.fontawesome.com/eeaa568ce9.js" crossorigin="anonymous"></script>
 
     <title>Compact Disk</title>
@@ -19,14 +19,12 @@
             <label for="drop" class="toggle"> <i class="fas fa-bars"></i></label>
             <input type="checkbox" id="drop">
             <ul class="menu">
-                <li><a class="active" href="https://vale-sch.github.io/GIS-SoSe2020/Aufgabe06/Shop.htm"><i
-                            class="fas fa-home"></i> Startseite</a></li>
-                <li><a href="#Favoriten"><i
-                            class="fas fa-heartbeat"></i> Charts</a></li>
+                <li><a class="active" href="#Everything"><i class="fas fa-home"></i> Startseite</a></li>
+                <li><a href="#Sales"><i class="fas fa-heartbeat"></i> Sales</a></li>
+                <li><a href="#Favoriten"><i class="fas fa-heartbeat"></i> Charts</a></li>
                 <li><a href="https://vale-sch.github.io/GIS-SoSe2020/Aufgabe06/Account.htm"><i
                             class="fa fa-fw fa-user"></i> Mein Account</a></li>
-                <li><a href="https://vale-sch.github.io/GIS-SoSe2020/Aufgabe06/Warenkorb.htm"><i
-                            class="fas fa-shopping-basket"> Warenkorb</i></a></li>
+                <li> <a href="https://vale-sch.github.io/GIS-SoSe2020/Aufgabe06/Warenkorb.htm" id="basketNumber">Warenkorb: </a></li>
 
 
             </ul>
@@ -35,10 +33,10 @@
 
     </header>
     <main>
-        <h1>Wilkommen zu den heutigen <i id="sales">Sales</i>!</h1>
-        <div id="masterSales"></div>
-        <h1>Wilkommen zu den wöchentlichen <i id="Favoriten">Charts</i>!</h1>
-        <div id="masterFavorites"></div>
+        <h1 id="sales">Wilkommen zu den heutigen <i>Sales</i>!</h1>
+        <div></div>
+        <h1 id="Favoriten">Wilkommen zu den wöchentlichen <i>Charts</i>!</h1>
+        <div></div>
 
 
     </main>
