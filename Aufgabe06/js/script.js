@@ -230,13 +230,14 @@ var Abgabe05;
             pAlbum.setAttribute("class", "text");
             let pInterpret = document.createElement("p");
             pInterpret.setAttribute("class", "text");
-            let pPrice = document.createElement("p");
+            let pPrice = document.createElement("a");
             pPrice.setAttribute("class", "text");
             //Inhalte festlegen//Warenkorb icon
             let button = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
             button.addEventListener("click", onClickButton.bind(allSales[index]));
             button.setAttribute("class", "fas fa-shopping-basket");
+            button.setAttribute("href", "#");
             //Inhalte festlegen//Audios
             let audio = document.createElement("audio");
             audio.setAttribute("controls", "");

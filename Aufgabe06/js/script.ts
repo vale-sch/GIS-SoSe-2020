@@ -257,14 +257,16 @@ namespace Abgabe05 {
             pAlbum.setAttribute("class", "text");
             let pInterpret: HTMLElement = document.createElement("p");
             pInterpret.setAttribute("class", "text");
-            let pPrice: HTMLElement = document.createElement("p");
+            let pPrice: HTMLElement = document.createElement("a");
             pPrice.setAttribute("class", "text");
+           
 
             //Inhalte festlegen//Warenkorb icon
             let button: HTMLElement = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
             button.addEventListener("click", onClickButton.bind(allSales[index]));
             button.setAttribute("class", "fas fa-shopping-basket");
+            button.setAttribute("href", "#");
 
             //Inhalte festlegen//Audios
             let audio: HTMLElement = document.createElement("audio");
