@@ -1,4 +1,6 @@
 namespace Abgabe05 {
+
+    //Objekte erstellen
     window.addEventListener("load", init);
     let articleCounter: number = 0;
     let articlePriceCounter: number = 0;
@@ -6,6 +8,8 @@ namespace Abgabe05 {
     let favoritesDiv: HTMLDivElement;
     let hideHeadlineFav: HTMLHeadingElement;
     let hideHeadlineSal: HTMLHeadingElement;
+    
+    
     //Attribute erstellen
     interface Artikel {
         showMe: boolean;
@@ -17,7 +21,8 @@ namespace Abgabe05 {
         preis: number;
     }
 
-    //Artikel Musik Sale
+    //gesamtes Sortiment
+    //Artikel allSales
     let artikel01: Artikel = {
         showMe: true,
         image: "Pictures/2.png",
@@ -127,7 +132,9 @@ namespace Abgabe05 {
         audio: "music/12.m4a",
         preis: 1.49
     };
+
     //Artikel Musik Favorites
+
     let artikel13: Artikel = {
         showMe: true,
         image: "Pictures/1.png",
@@ -219,44 +226,49 @@ namespace Abgabe05 {
     //alle Artikel von masterFavorites
     const allFavorites: Artikel[] = [artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21];
 
-    //Kategorie 1
+    //main Methode, legt Laufrichtung fest
     function init(_event: Event): void {
+
         generateSales();
         generateFavorites();
 
+        //hier werden die beiden schon gesetzen h1 Überschriften aus der html selektiert, um sie bei Click-Anforderung auszublenden. 
         hideHeadlineFav = <HTMLHeadingElement>document.querySelector("#Favoriten");
         hideHeadlineSal = <HTMLHeadingElement>document.querySelector("#sales");
 
         loadNavListeners();
-
-
-
     }
 
+
+    //Funktion für Artikel Sales
     function generateSales(): void {
+
+        //leeres div aus HTMl selektieren und attribuieren 
         saleDiv = <HTMLDivElement>document.querySelector("#sales + div");
         saleDiv.setAttribute("id", "masterSales");
 
         for (let index: number = 0; index < allSales.length; index++) {
 
-            //Inhalte/Attribute festlegen
-
-
-            //Inhalte festlegen//div-element
-
-            let divMusic: HTMLElement = document.createElement("div");
+            //Inhaltefestlegen//div
+            let divMusic: HTMLDivElement = document.createElement("div");
             divMusic.setAttribute("class", "music");
+
             //Inahltefestlegen//Pictures
-            let img: HTMLElement = document.createElement("img");
+            let img: HTMLImageElement = document.createElement("img");
             img.setAttribute("src", allSales[index].image);
             img.setAttribute("alt", "Music Covers");
-            //Inhalte festlegen//Beschreibungen
+
+
+            //Inhalte festlegen//Beschreibungen (Titel, Interpret, Album, Preis)
             let pTitel: HTMLElement = document.createElement("p");
             pTitel.setAttribute("class", "text");
+
             let pAlbum: HTMLElement = document.createElement("p");
             pAlbum.setAttribute("class", "text");
+
             let pInterpret: HTMLElement = document.createElement("p");
             pInterpret.setAttribute("class", "text");
+
             let pPrice: HTMLElement = document.createElement("a");
             pPrice.setAttribute("class", "text");
            
@@ -264,12 +276,15 @@ namespace Abgabe05 {
             //Inhalte festlegen//Warenkorb icon
             let button: HTMLElement = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
-            button.addEventListener("click", onClickButton.bind(allSales[index]));
             button.setAttribute("class", "fas fa-shopping-basket");
             button.setAttribute("href", "#");
+            
+            //Jeder "button" der generiert wird, bekommt ein Eventlistener
+            button.addEventListener("click", onClickButton.bind(allSales[index]));
+           
 
             //Inhalte festlegen//Audios
-            let audio: HTMLElement = document.createElement("audio");
+            let audio: HTMLAudioElement = document.createElement("audio");
             audio.setAttribute("controls", "");
             audio.setAttribute("src", allSales[index].audio);
             audio.setAttribute("class", "pAudio");
@@ -278,7 +293,6 @@ namespace Abgabe05 {
 
             //Inhalte generieren
             //Inhalte generieren//Pictures
-
             saleDiv.appendChild(divMusic);
             divMusic.appendChild(img);
 
@@ -297,40 +311,50 @@ namespace Abgabe05 {
         }
     }
 
-    //Kategorie 2
+
+    //Funktion für Artikel Favoriten
     function generateFavorites(): void {
+
+        //leeres 2. div aus HTMl selektieren und attribuieren 
         favoritesDiv = <HTMLDivElement>document.querySelector("#Favoriten + div");
         favoritesDiv.setAttribute("id", "masterFavorites");
+        
         for (let index: number = 0; index < allFavorites.length; index++) {
 
-            //Inhalte/Attribute festlegen//Pictures
-            let img: HTMLElement = document.createElement("img");
+            //Inhaltefestlegen//Pictures
+            let img: HTMLImageElement = document.createElement("img");
             img.setAttribute("src", allFavorites[index].image);
             img.setAttribute("alt", "Music Covers");
 
             //Inhalte festlegen//div-element
-
-            let div: HTMLElement = document.createElement("div");
+            let div: HTMLDivElement = document.createElement("div");
             div.setAttribute("class", "music");
 
             //Inhalte festlegen//Beschreibungen
             let pTitel: HTMLElement = document.createElement("p");
             pTitel.setAttribute("class", "text");
+
             let pAlbum: HTMLElement = document.createElement("p");
             pAlbum.setAttribute("class", "text");
+
             let pInterpret: HTMLElement = document.createElement("p");
             pInterpret.setAttribute("class", "text");
+
             let pPrice: HTMLElement = document.createElement("p");
             pPrice.setAttribute("class", "text");
 
             //Inhalte festlegen//Warenkorb icon
             let button: HTMLElement = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
-            button.addEventListener("click", onClickButton.bind(allFavorites[index]));
             button.setAttribute("class", "fas fa-shopping-basket");
+            button.setAttribute("href", "#");
+
+            //Jeder "button" der generiert wird, bekommt ein Eventlistener
+            button.addEventListener("click", onClickButton.bind(allFavorites[index]));
+           
 
             //Inhalte festlegen//Audios
-            let audio: HTMLElement = document.createElement("audio");
+            let audio: HTMLAudioElement = document.createElement("audio");
             audio.setAttribute("controls", "");
             audio.setAttribute("src", allFavorites[index].audio);
             audio.setAttribute("class", "pAudio");
@@ -356,6 +380,9 @@ namespace Abgabe05 {
         }
 
     }
+
+
+    //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(this: Artikel, _click: MouseEvent): void {
 
         articlePriceCounter += this.preis;
@@ -373,6 +400,9 @@ namespace Abgabe05 {
 
 
     }
+
+
+    //Funktion um erste 3 Elemente aus der Navigation zu selektieren und sie dann an den Eventlistener("onCLickNavBar") zu binden 
     function loadNavListeners(): void {
         let navLi: HTMLAnchorElement;
 
@@ -384,6 +414,9 @@ namespace Abgabe05 {
 
 
     }
+
+
+    //Funktion um die 3 verschiedenen Click-Möglichkeiten zu unterscheiden (Startseite, Sales, Charts)
     function onClickNavBar(this: HTMLAnchorElement, _click: MouseEvent): void {
 
 
@@ -399,6 +432,7 @@ namespace Abgabe05 {
     }
 
 
+//Zusatzmethoden die innerhalb "onClickNavbar" in den 3 unterschiedlichen Fällen jeweils aufgeruft werden // die Artikel werden nicht gelöscht, sondern lediglich ausgeblendet.  
     function showEverthing(): void {
 
         saleDiv.style.display = "grid";
