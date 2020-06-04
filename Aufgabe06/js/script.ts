@@ -298,8 +298,8 @@ namespace Abgabe05 {
             //Inhalte festlegen//Warenkorb icon
             let button: HTMLElement = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
-            button.setAttribute("class", "fas fa-shopping-basket");
-            button.setAttribute("href", "#");
+            button.setAttribute("class", "fas fa-shopping-bag");
+            button.setAttribute("href", "#fas fa-shopping-bag");
 
             //Jeder "button" der generiert wird, bekommt ein Eventlistener
             button.addEventListener("click", onClickButton.bind(allArticles[index]));
@@ -344,17 +344,14 @@ namespace Abgabe05 {
         articlePriceCounter += this.preis;
         console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
         let basketNumber: HTMLElement = <HTMLElement>document.querySelector("li:last-child a");
-
+    
         articleCounter++;
         if (articlePriceCounter > 0) {
-            basketNumber.setAttribute("id", "artBasket");
-            basketNumber.innerHTML = "Warenkorb: " + articleCounter;
+            basketNumber.innerHTML =  "Warenkorb: " + articleCounter;
         }
         else {
             basketNumber.innerHTML = "Warenkorb: ";
         }
-
-
     }
 
 
@@ -388,7 +385,7 @@ namespace Abgabe05 {
     }
 
 
-    //Zusatzmethoden die innerhalb "onClickNavbar" in den 3 unterschiedlichen Fällen jeweils aufgeruft werden // die Artikel werden nicht gelöscht, sondern lediglich ausgeblendet.  
+    //Zusatzmethoden die innerhalb "onClickNavbar" in den 3 unterschiedlichen Fällen jeweils aufgerufen wird // die Artikel werden nicht gelöscht, sondern lediglich ausgeblendet.  
     function showEverthing(): void {
 
         saleDiv.style.display = "grid";

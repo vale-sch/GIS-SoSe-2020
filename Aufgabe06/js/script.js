@@ -204,7 +204,7 @@ var Abgabe05;
         preis: 1.99
     };
     //#endregion
-    //alle Artikel aus dem Sale
+    //alle Artikel aus dem Shop
     const allArticles = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12, artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21];
     //main Methode, legt Laufrichtung fest
     function init(_event) {
@@ -255,8 +255,8 @@ var Abgabe05;
             //Inhalte festlegen//Warenkorb icon
             let button = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
-            button.setAttribute("class", "fas fa-shopping-basket");
-            button.setAttribute("href", "#");
+            button.setAttribute("class", "fas fa-shopping-bag");
+            button.setAttribute("href", "#fas fa-shopping-bag");
             //Jeder "button" der generiert wird, bekommt ein Eventlistener
             button.addEventListener("click", onClickButton.bind(allArticles[index]));
             //Inhalte festlegen//Audios
@@ -285,7 +285,6 @@ var Abgabe05;
         let basketNumber = document.querySelector("li:last-child a");
         articleCounter++;
         if (articlePriceCounter > 0) {
-            basketNumber.setAttribute("id", "artBasket");
             basketNumber.innerHTML = "Warenkorb: " + articleCounter;
         }
         else {
@@ -315,7 +314,7 @@ var Abgabe05;
                 break;
         }
     }
-    //Zusatzmethoden die innerhalb "onClickNavbar" in den 3 unterschiedlichen Fällen jeweils aufgeruft werden // die Artikel werden nicht gelöscht, sondern lediglich ausgeblendet.  
+    //Zusatzmethoden die innerhalb "onClickNavbar" in den 3 unterschiedlichen Fällen jeweils aufgerufen wird // die Artikel werden nicht gelöscht, sondern lediglich ausgeblendet.  
     function showEverthing() {
         saleDiv.style.display = "grid";
         favoritesDiv.style.display = "grid";
