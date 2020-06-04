@@ -309,6 +309,7 @@ var Abgabe05;
         let basketNumber = document.querySelector("li:last-child a");
         articleCounter++;
         if (articlePriceCounter > 0) {
+            basketNumber.setAttribute("id", "artBasket");
             basketNumber.innerHTML = "Warenkorb: " + articleCounter;
         }
         else {

@@ -361,9 +361,11 @@ namespace Abgabe05 {
         articlePriceCounter += this.preis;
         console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
         let basketNumber: HTMLElement = <HTMLElement>document.querySelector("li:last-child a");
+        
         articleCounter++;
         if (articlePriceCounter > 0) {
-            basketNumber.innerHTML = "Warenkorb: " + articleCounter;
+            basketNumber.setAttribute("id", "artBasket");
+            basketNumber.innerHTML =  "Warenkorb: " + articleCounter;
         }
         else {
             basketNumber.innerHTML = "Warenkorb: ";
