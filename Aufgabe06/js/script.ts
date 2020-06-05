@@ -344,7 +344,7 @@ namespace Abgabe05 {
 
         articlePriceCounter += this.preis;
         console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
-        let basketNumber: HTMLElement = <HTMLElement>document.querySelector("li:last-child");
+        let basketNumber: HTMLLIElement = <HTMLLIElement>document.querySelector("li:last-child");
         let standardBasket: HTMLElement = document.createElement("i");
         standardBasket.setAttribute("class", "fas fa-shopping-basket");
         articleCounter++;
