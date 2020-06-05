@@ -21,6 +21,7 @@ namespace Abgabe05 {
         audio: string;
         preis: number;
     }
+    
 //#region Artikel
     //gesamtes Sortiment
     //Artikel allSales
@@ -343,14 +344,16 @@ namespace Abgabe05 {
 
         articlePriceCounter += this.preis;
         console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
-        let basketNumber: HTMLElement = <HTMLElement>document.querySelector("li:last-child a");
-    
+        let basketNumber: HTMLElement = <HTMLElement>document.querySelector("li:last-child");
+        let standardBasket: HTMLElement = document.createElement("i");
+        standardBasket.setAttribute("class", "fas fa-shopping-basket");
         articleCounter++;
         if (articlePriceCounter > 0) {
-            basketNumber.innerHTML =  "Warenkorb: " + articleCounter;
+            basketNumber.setAttribute("id", "basketNumber");
+            basketNumber.innerHTML =  "" + articleCounter;
         }
         else {
-            basketNumber.innerHTML = "Warenkorb: ";
+            basketNumber.innerHTML = "";
         }
     }
 

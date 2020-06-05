@@ -156,6 +156,20 @@ h1 {
     color: tomato;
 }
 
+#basketNumber {
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0%;
+    background-color: #ffffff;
+    color: #212121;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+}
+
 .Information {
     color: #78c0b9;
 }

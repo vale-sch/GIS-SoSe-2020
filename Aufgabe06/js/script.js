@@ -282,13 +282,16 @@ var Abgabe05;
     function onClickButton(_click) {
         articlePriceCounter += this.preis;
         console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
-        let basketNumber = document.querySelector("li:last-child a");
+        let basketNumber = document.querySelector("li:last-child");
+        let standardBasket = document.createElement("i");
+        standardBasket.setAttribute("class", "fas fa-shopping-basket");
         articleCounter++;
         if (articlePriceCounter > 0) {
-            basketNumber.innerHTML = "Warenkorb: " + articleCounter;
+            basketNumber.setAttribute("id", "basketNumber");
+            basketNumber.innerHTML = "" + articleCounter;
         }
         else {
-            basketNumber.innerHTML = "Warenkorb: ";
+            basketNumber.innerHTML = "";
         }
     }
     //Funktion um erste 3 Elemente aus der Navigation zu selektieren und sie dann an den Eventlistener("onCLickNavBar") zu binden 
