@@ -284,7 +284,7 @@ textarea {
 
 @media screen and (max-width: 712px) {
     #basketNumber {
-        left: 7%;
+        left: 15%;
         bottom: 10%;
     }
     h1 {
