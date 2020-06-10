@@ -233,7 +233,7 @@ namespace Abgabe07 {
        
         //Artikel erstellen 
         generateArticles();
-        console.log("Hallo");
+        
         //hier werden die beiden gesetzen h1 Überschriften aus der html selektiert, um sie bei Click-Anforderung auszublenden. 
         hideHeadlineFav = <HTMLHeadingElement>document.querySelector("#favoriten");
         hideHeadlineSal = <HTMLHeadingElement>document.querySelector("#sales");

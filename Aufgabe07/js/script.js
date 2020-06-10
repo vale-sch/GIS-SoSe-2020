@@ -210,7 +210,6 @@ var Abgabe07;
     function init(_event) {
         //Artikel erstellen 
         generateArticles();
-        console.log("Hallo");
         //hier werden die beiden gesetzen h1 Überschriften aus der html selektiert, um sie bei Click-Anforderung auszublenden. 
         hideHeadlineFav = document.querySelector("#favoriten");
         hideHeadlineSal = document.querySelector("#sales");
