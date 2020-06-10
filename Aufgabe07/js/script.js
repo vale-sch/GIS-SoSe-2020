@@ -11,7 +11,8 @@ var Abgabe07;
     let hideHeadlineFav;
     let hideHeadlineSal;
     //main Methode, legt Laufrichtung fest
-    function init(_event) {
+    async function init(_event) {
+        await Abgabe07.communicate("artikel.json");
         //Artikel erstellen 
         generateArticles();
         //hier werden die beiden gesetzen h1 Überschriften aus der html selektiert, um sie bei Click-Anforderung auszublenden. 
@@ -22,6 +23,7 @@ var Abgabe07;
     }
     //Funktion für Artikel Sales&Favoriten
     function generateArticles() {
+        console.log(Abgabe07.jsonObj);
         for (let index = 0; index < Abgabe07.jsonObj.length; index++) {
             if (Abgabe07.jsonObj[index].kategorie == "sale") {
                 //leeres div aus HTMl selektieren und attribuieren 
@@ -33,7 +35,7 @@ var Abgabe07;
                 //divMusic wird an div("masterSales") angehängt
                 saleDiv.appendChild(divMusic);
             }
-            if (Abgabe07.jsonObj[index].kategorie == "favorites") {
+            else {
                 //leeres div aus HTMl selektieren und attribuieren 
                 favoritesDiv = document.querySelector("#favoriten + div");
                 favoritesDiv.setAttribute("id", "masterFavorites");
@@ -82,7 +84,6 @@ var Abgabe07;
             divMusic.appendChild(audio).innerHTML = Abgabe07.jsonObj[index].audio;
         }
     }
-    Abgabe07.generateArticles = generateArticles;
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(_click) {
         articlePriceCounter += this.preis;
@@ -102,7 +103,8 @@ var Abgabe07;
     //Funktion um erste 3 Elemente aus der Navigation zu selektieren und sie dann an den Eventlistener("onCLickNavBar") zu binden 
     function loadNavListeners() {
         let navLi;
-        for (let index = 1; index < 4; index++) {
+        let literateNavbar = 4;
+        for (let index = 1; index < literateNavbar; index++) {
             navLi = document.querySelector(".menu li:nth-child(" + index + ") a");
             navLi.addEventListener("click", onClickNavBar.bind(navLi));
         }

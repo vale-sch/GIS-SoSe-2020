@@ -99,7 +99,7 @@ nav a:hover {
 
 #masterSales {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     grid-gap: 5px;
     margin: auto;
 }
@@ -107,7 +107,7 @@ nav a:hover {
 #masterFavorites {
     margin-bottom: 15%;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     grid-gap: 5px;
     margin: auto;
 }
@@ -241,7 +241,7 @@ textarea {
     padding: 32px 34px 32px 32px;
 }
 
-@media screen and (min-width:1440px) and (max-width: 1900px) {
+@media screen and (min-width:1440px) and (max-width: 1920px) {
     #masterSales {
         display: grid;
         grid-template-columns: auto auto auto;
@@ -258,13 +258,13 @@ textarea {
 
 @media screen and (min-width:712px) and (max-width: 1439px) {
     #masterFavorites {
-        max-width: 100%;
-        display: table;
+        display: grid;
+        grid-template-columns: auto auto;
         margin: 0 auto;
     }
     #masterSales {
-        max-width: 100%;
-        display: table;
+        display: grid;
+        grid-template-columns: auto auto;
         margin: 0 auto;
     }
     #sales {
@@ -294,13 +294,14 @@ textarea {
         width: unset;
         position: unset;
         max-width: 100%;
-        display: inline-table;
+        display: grid;
+        grid-template-columns: auto;
     }
     #masterFavorites {
         width: unset;
         position: unset;
-        max-width: 100%;
-        display: inline-table;
+        display: grid;
+        grid-template-columns: auto;
     }
     .music {
         display: inline-table;
@@ -345,18 +346,5 @@ textarea {
     nav ul li {
         display: block;
         width: 100%;
-    }
-}
-
-@media print {
-    p {
-        color: black;
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        color: black;
     }
 }

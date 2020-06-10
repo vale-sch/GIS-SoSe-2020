@@ -11,13 +11,15 @@ namespace Abgabe07 {
     let hideHeadlineSal: HTMLHeadingElement;
 
     
-
+   
 
     //main Methode, legt Laufrichtung fest
-    function init(_event: Event): void {
-        
+    async function init(_event: Event): Promise <void> {
+        await communicate("artikel.json");
+      
         //Artikel erstellen 
         generateArticles();
+        
         
         //hier werden die beiden gesetzen h1 Überschriften aus der html selektiert, um sie bei Click-Anforderung auszublenden. 
         hideHeadlineFav = <HTMLHeadingElement>document.querySelector("#favoriten");
@@ -28,9 +30,9 @@ namespace Abgabe07 {
 
 
     //Funktion für Artikel Sales&Favoriten
-    export function generateArticles(): void {
+    function generateArticles(): void {
 
-        
+        console.log(jsonObj);
         for (let index: number = 0; index < jsonObj.length; index++) {
             if (jsonObj[index].kategorie == "sale") {
 
@@ -47,7 +49,7 @@ namespace Abgabe07 {
 
 
             }
-            if (jsonObj[index].kategorie == "favorites") {
+            else {
 
                 //leeres div aus HTMl selektieren und attribuieren 
                 favoritesDiv = <HTMLDivElement>document.querySelector("#favoriten + div");
@@ -128,7 +130,6 @@ namespace Abgabe07 {
 
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(this: Artikel, _click: MouseEvent): void {
-
         articlePriceCounter += this.preis;
         console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
         let basketNumber: HTMLLIElement = <HTMLLIElement>document.querySelector("li:last-child");
@@ -148,7 +149,8 @@ namespace Abgabe07 {
     //Funktion um erste 3 Elemente aus der Navigation zu selektieren und sie dann an den Eventlistener("onCLickNavBar") zu binden 
     function loadNavListeners(): void {
         let navLi: HTMLAnchorElement;
-        for (let index: number = 1; index < 4; index++) {
+        let literateNavbar: number = 4;
+        for (let index: number = 1; index < literateNavbar; index++) {
             navLi = <HTMLAnchorElement>document.querySelector(".menu li:nth-child(" + index + ") a");
             navLi.addEventListener("click", onClickNavBar.bind(navLi));
 
