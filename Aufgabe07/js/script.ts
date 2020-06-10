@@ -28,9 +28,9 @@ namespace Abgabe07 {
 
 
     //Funktion für Artikel Sales&Favoriten
-    function generateArticles(): void {
+    export function generateArticles(): void {
 
-        console.log(jsonObj);
+        
         for (let index: number = 0; index < jsonObj.length; index++) {
             if (jsonObj[index].kategorie == "sale") {
 

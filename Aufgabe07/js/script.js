@@ -22,7 +22,6 @@ var Abgabe07;
     }
     //Funktion für Artikel Sales&Favoriten
     function generateArticles() {
-        console.log(Abgabe07.jsonObj);
         for (let index = 0; index < Abgabe07.jsonObj.length; index++) {
             if (Abgabe07.jsonObj[index].kategorie == "sale") {
                 //leeres div aus HTMl selektieren und attribuieren 
@@ -83,6 +82,7 @@ var Abgabe07;
             divMusic.appendChild(audio).innerHTML = Abgabe07.jsonObj[index].audio;
         }
     }
+    Abgabe07.generateArticles = generateArticles;
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(_click) {
         articlePriceCounter += this.preis;
