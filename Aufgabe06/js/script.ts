@@ -1,4 +1,4 @@
-namespace Abgabe05 {
+namespace Abgabe06 {
 
     //Objekte erstellen
     window.addEventListener("load", init);
@@ -361,7 +361,6 @@ namespace Abgabe05 {
     //Funktion um erste 3 Elemente aus der Navigation zu selektieren und sie dann an den Eventlistener("onCLickNavBar") zu binden 
     function loadNavListeners(): void {
         let navLi: HTMLAnchorElement;
-
         for (let index: number = 1; index < 4; index++) {
             navLi = <HTMLAnchorElement>document.querySelector(".menu li:nth-child(" + index + ") a");
             navLi.addEventListener("click", onClickNavBar.bind(navLi));

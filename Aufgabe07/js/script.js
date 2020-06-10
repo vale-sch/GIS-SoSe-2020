@@ -1,6 +1,6 @@
 "use strict";
-var Abgabe06;
-(function (Abgabe06) {
+var Abgabe07;
+(function (Abgabe07) {
     //Objekte erstellen
     window.addEventListener("load", init);
     let articleCounter = 0;
@@ -210,6 +210,7 @@ var Abgabe06;
     function init(_event) {
         //Artikel erstellen 
         generateArticles();
+        console.log("Hallo");
         //hier werden die beiden gesetzen h1 Überschriften aus der html selektiert, um sie bei Click-Anforderung auszublenden. 
         hideHeadlineFav = document.querySelector("#favoriten");
         hideHeadlineSal = document.querySelector("#sales");
@@ -336,5 +337,5 @@ var Abgabe06;
         hideHeadlineFav.style.display = "block";
         hideHeadlineSal.style.display = "none";
     }
-})(Abgabe06 || (Abgabe06 = {}));
+})(Abgabe07 || (Abgabe07 = {}));
 //# sourceMappingURL=script.js.map

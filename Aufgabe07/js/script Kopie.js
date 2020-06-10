@@ -1,6 +1,6 @@
 "use strict";
-var Abgabe06;
-(function (Abgabe06) {
+var Abgabe07;
+(function (Abgabe07) {
     //Objekte erstellen
     window.addEventListener("load", init);
     let articleCounter = 0;
@@ -206,6 +206,8 @@ var Abgabe06;
     //#endregion
     //alle Artikel aus dem Shop
     const allArticles = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12, artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21];
+    let artikel = JSON.stringify("allArticles");
+    console.log(artikel);
     //main Methode, legt Laufrichtung fest
     function init(_event) {
         //Artikel erstellen 
@@ -336,5 +338,5 @@ var Abgabe06;
         hideHeadlineFav.style.display = "block";
         hideHeadlineSal.style.display = "none";
     }
-})(Abgabe06 || (Abgabe06 = {}));
-//# sourceMappingURL=script.js.map
+})(Abgabe07 || (Abgabe07 = {}));
+//# sourceMappingURL=script Kopie.js.map
