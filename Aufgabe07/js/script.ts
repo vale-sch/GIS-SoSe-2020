@@ -10,227 +10,12 @@ namespace Abgabe07 {
     let hideHeadlineFav: HTMLHeadingElement;
     let hideHeadlineSal: HTMLHeadingElement;
 
-
-   //Attribute erstellen
-    interface Artikel {
-        kategorie: string;
-        image: string;
-        titel: string;
-        ablum: string;
-        interpret: string;
-        audio: string;
-        preis: number;
-    }
-    
-//#region Artikel
-    //gesamtes Sortiment
-    //Artikel allSales
-    let artikel01: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/2.png",
-        titel: "Titel: B.A.X",
-        ablum: "Album: SC2019",
-        interpret: "Interpret: Pongour Falls",
-        preis: 2.49,
-        audio: "music/1.m4a"
-    };
-    let artikel02: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/4.png",
-        titel: "Titel: Dagger",
-        ablum: "Album: Cloak & Degger",
-        interpret: "Interpret: OC&Verde",
-        preis: 0.99,
-        audio: "music/2.m4a"
-
-    };
-    let artikel03: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/6.png",
-        titel: "Titel: Fades (Original Mix)",
-        ablum: "Album: Muse EP",
-        interpret: "Interpret: Julian Wassermann",
-        preis: 1.49,
-        audio: "music/3.m4a"
-    };
-    let artikel04: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/8.png",
-        titel: "Titel: Hangdrum (Extended Mix)",
-        ablum: "Album: Hangdrum /Dust",
-        interpret: "Interpret: Robin M.",
-        preis: 1.99,
-        audio: "music/4.m4a"
-    };
-    let artikel05: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/10.png",
-        titel: "Titel: Jado (Original Mix)",
-        ablum: "Album: Jado",
-        interpret: "Interpret: 8Kays, Posting",
-        audio: "music/5.m4a",
-        preis: 0.49
-    };
-    let artikel06: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/12.png",
-        titel: "Titel: La Nuit Sans Fin",
-        ablum: "Album: La Nuit Sans Fin",
-        interpret: "Interpret: Bodaishin",
-        audio: "music/6.m4a",
-        preis: 1.49
-    };
-    let artikel07: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/14.png",
-        titel: "Titel: Nature",
-        ablum: "ALbum: 1948",
-        interpret: "Interpret: Sergio Sanchez",
-        audio: "music/7.m4a",
-        preis: 0.99
-    };
-    let artikel08: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/16.png",
-        titel: "Titel: Sagna (Original Mix)",
-        ablum: "Album: Versoria EP",
-        interpret: "Interpret: Stephan Jolk",
-        audio: "music/8.m4a",
-        preis: 1.49
-    };
-    let artikel09: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/18.png",
-        titel: "Titel: Olson (Original Mix)",
-        ablum: "Album: Reunion",
-        interpret: "Interpret: Fejka",
-        audio: "music/9.m4a",
-        preis: 1.99
-    };
-    let artikel10: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/20.png",
-        titel: "Titel: Wahah",
-        ablum: "Album: Wahah EP",
-        interpret: "Interpret: Doctor Dru",
-        audio: "music/10.m4a",
-        preis: 0.99
-    };
-    let artikel11: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/22.png",
-        titel: "Titel: Oppression",
-        ablum: "Album: Oppression",
-        interpret: "Interpret: Several Definitions",
-        audio: "music/11.m4a",
-        preis: 2.99
-    };
-    let artikel12: Artikel = {
-        kategorie: "sale",
-        image: "Pictures/24.png",
-        titel: "Titel: Oasis (Timo Maas 2020 Remix)",
-        ablum: "Album: Oasis EP",
-        interpret: "Interpret: Peter Dundov",
-        audio: "music/12.m4a",
-        preis: 1.49
-    };
-
-    //Artikel Musik Favorites
-
-    let artikel13: Artikel = {
-        kategorie: "favorites",
-        image: "Pictures/1.png",
-        titel: "Titel: Action speaks louder than words",
-        ablum: "Album: Fire in the Jungle",
-        interpret: "Interpret: Oliver Koletzki",
-        audio: "musicfavorites/1.m4a",
-        preis: 2.49
-    };
-    let artikel14: Artikel = {
-        kategorie: "favorites",
-        image: "Pictures/5.png",
-        titel: "Titel: Eastern Sun (Original Mix)",
-        ablum: "Album: Carousel",
-        interpret: "Interpret: De Montero",
-        audio: "musicfavorites/2.m4a",
-        preis: 0.99
-
-    };
-    let artikel15: Artikel = {
-        kategorie: "favorites",
-        image: "Pictures/9.png",
-        titel: "Titel: Illusion of us (Original Mix)",
-        ablum: "Album: Obsession",
-        interpret: "Interpret: Baris Bayrak",
-        audio: "musicfavorites/3.m4a",
-        preis: 1.49
-    };
-    let artikel16: Artikel = {
-        kategorie: "favorites",
-        image: "Pictures/11.png",
-        titel: "Titel: Kamel Bani",
-        ablum: "Album: Laconia",
-        interpret: "Interpret: Sam Shure, CIOZ",
-        audio: "musicfavorites/4.m4a",
-        preis: 1.99
-    };
-    let artikel17: Artikel = {
-        kategorie: "favorites",
-        image: "Pictures/13.png",
-        titel: "Titel: Madame",
-        ablum: "Album: Madame",
-        interpret: "Interpret: Ron Flatter",
-        audio: "musicfavorites/5.m4a",
-        preis: 0.49
-    };
-    let artikel18: Artikel = {
-        kategorie: "favorites",
-        image: "Pictures/15.png",
-        titel: "Titel: Rain Dance",
-        ablum: "Album: Channel Tropico",
-        interpret: "Interpret: Tunnelvisions ",
-        audio: "musicfavorites/6.m4a",
-        preis: 1.49
-    };
-    let artikel19: Artikel = {
-        kategorie: "favorites",
-        image: "Pictures/17.png",
-        titel: "Titel: Taboo",
-        ablum: "Album: Amnesia, Taboo",
-        interpret: "Interpret: Enamour",
-        audio: "musicfavorites/6a.m4a",
-        preis: 0.99
-    };
-    let artikel20: Artikel = {
-        kategorie: "favorites",
-        image: "Pictures/19.png",
-        titel: "Titel: Vacant (Original Mix)",
-        ablum: "Album: Modus",
-        interpret: "Interpret: Daniel Di Martino",
-        audio: "musicfavorites/7.m4a",
-        preis: 1.49
-    };
-    let artikel21: Artikel = {
-        kategorie: "favorites",
-        image: "Pictures/21.png",
-        titel: "Titel: Xanax (Original Mix)",
-        ablum: "Album: Ethernal Techno #007",
-        interpret: "Interpret: Clwz SG",
-        audio: "musicfavorites/8.m4a",
-        preis: 1.99
-    };
-//#endregion
-
-
-    //alle Artikel aus dem Shop
-    const allArticles: Artikel[] = [artikel01, artikel02, artikel03, artikel04, artikel05, artikel06, artikel07, artikel08, artikel09, artikel10, artikel11, artikel12, artikel13, artikel14, artikel15, artikel16, artikel17, artikel18, artikel19, artikel20, artikel21];
-
     
 
 
     //main Methode, legt Laufrichtung fest
     function init(_event: Event): void {
-       
+        
         //Artikel erstellen 
         generateArticles();
         
@@ -245,9 +30,9 @@ namespace Abgabe07 {
     //Funktion für Artikel Sales&Favoriten
     function generateArticles(): void {
 
-
-        for (let index: number = 0; index < allArticles.length; index++) {
-            if (allArticles[index].kategorie == "sale") {
+        console.log(jsonObj);
+        for (let index: number = 0; index < jsonObj.length; index++) {
+            if (jsonObj[index].kategorie == "sale") {
 
                 //leeres div aus HTMl selektieren und attribuieren 
                 saleDiv = <HTMLDivElement>document.querySelector("#sales + div");
@@ -262,7 +47,7 @@ namespace Abgabe07 {
 
 
             }
-            if (allArticles[index].kategorie == "favorites") {
+            if (jsonObj[index].kategorie == "favorites") {
 
                 //leeres div aus HTMl selektieren und attribuieren 
                 favoritesDiv = <HTMLDivElement>document.querySelector("#favoriten + div");
@@ -280,7 +65,7 @@ namespace Abgabe07 {
 
             //Inahltefestlegen//Pictures
             let img: HTMLImageElement = document.createElement("img");
-            img.setAttribute("src", allArticles[index].image);
+            img.setAttribute("src", jsonObj[index].image);
             img.setAttribute("alt", "Music Covers");
 
 
@@ -305,13 +90,13 @@ namespace Abgabe07 {
             button.setAttribute("href", "#fas fa-shopping-bag");
 
             //Jeder "button" der generiert wird, bekommt ein Eventlistener
-            button.addEventListener("click", onClickButton.bind(allArticles[index]));
+            button.addEventListener("click", onClickButton.bind(jsonObj[index]));
 
 
             //Inhalte festlegen//Audios
             let audio: HTMLAudioElement = document.createElement("audio");
             audio.setAttribute("controls", "");
-            audio.setAttribute("src", allArticles[index].audio);
+            audio.setAttribute("src", jsonObj[index].audio);
             audio.setAttribute("class", "pAudio");
             audio.setAttribute("alt", "Audio Lines");
 
@@ -321,15 +106,15 @@ namespace Abgabe07 {
             divMusic.appendChild(img);
 
             //Inhalte generieren//Warenkorb
-            divMusic.appendChild(button).innerHTML = "Preis: " + allArticles[index].preis + "€";
+            divMusic.appendChild(button).innerHTML = "Preis: " + jsonObj[index].preis + "€";
 
             //Inhalte generieren//Beschreibungen
-            divMusic.appendChild(pTitel).innerHTML = allArticles[index].titel;
-            divMusic.appendChild(pAlbum).innerHTML = allArticles[index].ablum;
-            divMusic.appendChild(pInterpret).innerHTML = allArticles[index].interpret;
+            divMusic.appendChild(pTitel).innerHTML = jsonObj[index].titel;
+            divMusic.appendChild(pAlbum).innerHTML = jsonObj[index].ablum;
+            divMusic.appendChild(pInterpret).innerHTML = jsonObj[index].interpret;
 
             //Inhalte generieren//Audio
-            divMusic.appendChild(audio).innerHTML = allArticles[index].audio;
+            divMusic.appendChild(audio).innerHTML = jsonObj[index].audio;
 
 
 

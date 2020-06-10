@@ -1,11 +1,11 @@
 "use strict";
 var Abgabe07;
 (function (Abgabe07) {
-    communicate("Artikel.json");
+    Abgabe07.jsonObj = [];
+    communicate("artikel.json");
     async function communicate(_url) {
-        let response = await fetch("Artikel.json");
+        let response = await fetch("artikel.json");
         let jsonObj = await response.json();
-        console.log("Response", jsonObj);
         //let produkte: Artikel[] = JSON.parse(jsonObj);
         //console.log("Produkte: ", produkte);
     }

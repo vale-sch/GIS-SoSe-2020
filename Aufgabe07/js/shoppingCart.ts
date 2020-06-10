@@ -1,7 +1,6 @@
 namespace Abgabe07 {
-
-    //Attribute erstellen
-    interface Artikel {
+    export let jsonObj: Artikel [] = [];
+    export interface Artikel {
         kategorie: string;
         image: string;
         titel: string;
@@ -10,11 +9,10 @@ namespace Abgabe07 {
         audio: string;
         preis: number;
     }
-    communicate("Artikel.json");
+    communicate("artikel.json");
     async function communicate(_url: RequestInfo): Promise<void> {
-        let response: Response = await fetch("Artikel.json");
+        let response: Response = await fetch("artikel.json");
         let jsonObj: Artikel [] = await response.json();
-        console.log("Response", jsonObj);
        //let produkte: Artikel[] = JSON.parse(jsonObj);
        //console.log("Produkte: ", produkte);
 
