@@ -14,7 +14,7 @@ namespace Abgabe07 {
             let articleKey: string = <string>localStorage.key(index);
             let jsonString: string = <string>localStorage.getItem(articleKey);
             article = <Artikel>JSON.parse(jsonString);
-            container.appendChild(generateDiv(article));
+            container.appendChild(generateDiv());
         }
     }
 }

@@ -117,7 +117,7 @@ namespace Abgabe07 {
 
         }
     }
-    export function generateDiv(_aritcle: Artikel): HTMLDivElement {
+    export function generateDiv(): HTMLDivElement {
         for (let index: number = 0; index < jsonObj.length; index++) {
 
             //leeres div aus HTMl selektieren und attribuieren 
