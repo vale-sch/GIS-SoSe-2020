@@ -14,7 +14,6 @@ var Abgabe07;
     async function init(_event) {
         await Abgabe07.communicate("artikel.json");
         //Artikel erstellen 
-        generateArticles();
         //hier werden die beiden gesetzen h1 Überschriften aus der html selektiert, um sie bei Click-Anforderung auszublenden. 
         hideHeadlineFav = document.querySelector("#favoriten");
         hideHeadlineSal = document.querySelector("#sales");
@@ -23,7 +22,6 @@ var Abgabe07;
     }
     //Funktion für Artikel Sales&Favoriten
     function generateArticles() {
-        console.log(Abgabe07.jsonObj);
         for (let index = 0; index < Abgabe07.jsonObj.length; index++) {
             if (Abgabe07.jsonObj[index].kategorie == "sale") {
                 //leeres div aus HTMl selektieren und attribuieren 
@@ -84,6 +82,63 @@ var Abgabe07;
             divMusic.appendChild(audio).innerHTML = Abgabe07.jsonObj[index].audio;
         }
     }
+    Abgabe07.generateArticles = generateArticles;
+    function generateDiv(_aritcle) {
+        for (let index = 0; index < Abgabe07.jsonObj.length; index++) {
+            //leeres div aus HTMl selektieren und attribuieren 
+            saleDiv = document.querySelector("#Warenkorb + div");
+            saleDiv.setAttribute("id", "masterSales");
+            //Inhaltefestlegen//div
+            divMusic = document.createElement("div");
+            divMusic.setAttribute("class", "music");
+            //divMusic wird an div("masterSales") angehängt
+            saleDiv.appendChild(divMusic);
+            //Inahltefestlegen//Pictures
+            let img = document.createElement("img");
+            img.setAttribute("src", Abgabe07.jsonObj[index].image);
+            img.setAttribute("alt", "Music Covers");
+            //Inhalte festlegen//Beschreibungen (Titel, Interpret, Album, Preis)
+            let pTitel = document.createElement("p");
+            pTitel.setAttribute("class", "text");
+            let pAlbum = document.createElement("p");
+            pAlbum.setAttribute("class", "text");
+            let pInterpret = document.createElement("p");
+            pInterpret.setAttribute("class", "text");
+            let pPrice = document.createElement("a");
+            pPrice.setAttribute("class", "text");
+            //Inhalte festlegen//Warenkorb icon
+            let button = document.createElement("a");
+            button.setAttribute("title", "Ab in den Warenkorb!");
+            button.setAttribute("class", "fas fa-shopping-bag");
+            button.setAttribute("href", "#fas fa-shopping-bag");
+            //Jeder "button" der generiert wird, bekommt ein Eventlistener
+            button.addEventListener("click", onClickButton.bind(Abgabe07.jsonObj[index]));
+            //Inhalte festlegen//Audios
+            let audio = document.createElement("audio");
+            audio.setAttribute("controls", "");
+            audio.setAttribute("src", Abgabe07.jsonObj[index].audio);
+            audio.setAttribute("class", "pAudio");
+            audio.setAttribute("alt", "Audio Lines");
+            //Inhalte generieren
+            //Inhalte generieren//Pictures
+            divMusic.appendChild(img);
+            //Inhalte generieren//Warenkorb
+            divMusic.appendChild(button).innerHTML = "Preis: " + Abgabe07.jsonObj[index].preis + "€";
+            //Inhalte generieren//Beschreibungen
+            divMusic.appendChild(pTitel).innerHTML = Abgabe07.jsonObj[index].titel;
+            divMusic.appendChild(pAlbum).innerHTML = Abgabe07.jsonObj[index].ablum;
+            divMusic.appendChild(pInterpret).innerHTML = Abgabe07.jsonObj[index].interpret;
+            //Inhalte generieren//Audio
+            divMusic.appendChild(audio).innerHTML = Abgabe07.jsonObj[index].audio;
+        }
+        return divMusic;
+    }
+    Abgabe07.generateDiv = generateDiv;
+    function toStorage(_article) {
+        let inhalt = JSON.stringify(_article);
+        localStorage.setItem(_article.titel, inhalt);
+        console.log(localStorage);
+    }
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(_click) {
         articlePriceCounter += this.preis;
@@ -99,6 +154,8 @@ var Abgabe07;
         else {
             basketNumber.innerHTML = "";
         }
+        localStorage.clear();
+        toStorage(this);
     }
     //Funktion um erste 3 Elemente aus der Navigation zu selektieren und sie dann an den Eventlistener("onCLickNavBar") zu binden 
     function loadNavListeners() {

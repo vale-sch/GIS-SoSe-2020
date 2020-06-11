@@ -5,6 +5,7 @@ var Abgabe07;
     async function communicate(_url) {
         let response = await fetch(_url);
         Abgabe07.jsonObj = await response.json();
+        Abgabe07.generateArticles();
     }
     Abgabe07.communicate = communicate;
 })(Abgabe07 || (Abgabe07 = {}));
