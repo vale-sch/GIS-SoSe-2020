@@ -76,7 +76,7 @@ namespace Abgabe07 {
             pInterpret.setAttribute("class", "text");
 
             let pPrice: HTMLElement = document.createElement("i");
-            
+
 
 
             //Inhalte festlegen//Warenkorb icon
@@ -120,16 +120,16 @@ namespace Abgabe07 {
         }
     }
 
-    export function toStorage(_article: Artikel): void {
+    function toStorage(_article: Artikel): void {
         let inhalt: string = JSON.stringify(_article);
         localStorage.setItem(_article.titel, inhalt);
-        
+
     }
 
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(this: Artikel, _click: MouseEvent): void {
         articlePriceCounter += this.preis;
-        
+
         let basketNumber: HTMLLIElement = <HTMLLIElement>document.querySelector("li:last-child");
         let standardBasket: HTMLElement = document.createElement("i");
         standardBasket.setAttribute("class", "fas fa-shopping-basket");
@@ -141,10 +141,10 @@ namespace Abgabe07 {
         else {
             basketNumber.innerHTML = "";
         }
-        
+
         toStorage(this);
-       // localStorage.setItem("totalPrice", String(articlePriceCounter));
-       // localStorage.setItem("totalPrice", String(articleCounter));
+        // localStorage.setItem("totalPrice", String(articlePriceCounter));
+        localStorage.setItem("totalPrice", String(articleCounter));
     }
 
 

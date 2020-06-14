@@ -86,13 +86,10 @@ var Abgabe07;
     function toStorage(_article) {
         let inhalt = JSON.stringify(_article);
         localStorage.setItem(_article.titel, inhalt);
-        console.log(localStorage);
     }
-    Abgabe07.toStorage = toStorage;
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(_click) {
         articlePriceCounter += this.preis;
-        console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
         let basketNumber = document.querySelector("li:last-child");
         let standardBasket = document.createElement("i");
         standardBasket.setAttribute("class", "fas fa-shopping-basket");
@@ -106,7 +103,7 @@ var Abgabe07;
         }
         toStorage(this);
         // localStorage.setItem("totalPrice", String(articlePriceCounter));
-        // localStorage.setItem("totalPrice", String(articleCounter));
+        localStorage.setItem("totalPrice", String(articleCounter));
     }
     //Funktion um erste 3 Elemente aus der Navigation zu selektieren und sie dann an den Eventlistener("onCLickNavBar") zu binden 
     function loadNavListeners() {
