@@ -97,6 +97,13 @@ nav a:hover {
     margin: 32px 34px 32px 32px;
 }
 
+#warenkorbdiv {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 5px;
+    margin: auto;
+}
+
 #masterSales {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
@@ -242,6 +249,12 @@ textarea {
 }
 
 @media screen and (min-width:1440px) and (max-width: 1920px) {
+    #warenkorbDiv {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 5px;
+        margin: auto;
+    }
     #masterSales {
         display: grid;
         grid-template-columns: auto auto auto;
@@ -257,6 +270,11 @@ textarea {
 }
 
 @media screen and (min-width:712px) and (max-width: 1439px) {
+    #warenkorbDiv {
+        display: grid;
+        grid-template-columns: auto auto;
+        margin: 0 auto;
+    }
     #masterFavorites {
         display: grid;
         grid-template-columns: auto auto;
@@ -289,6 +307,13 @@ textarea {
     }
     h1 {
         font-size: 20px;
+    }
+    #warenkorbDiv {
+        width: unset;
+        position: unset;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: auto;
     }
     #masterSales {
         width: unset;

@@ -117,83 +117,13 @@ namespace Abgabe07 {
 
         }
     }
-    export function generateDiv(): HTMLDivElement {
-        for (let index: number = 0; index < jsonObj.length; index++) {
 
-            //leeres div aus HTMl selektieren und attribuieren 
-            saleDiv = <HTMLDivElement>document.querySelector("#Warenkorb + div");
-            saleDiv.setAttribute("id", "masterSales");
-
-            //Inhaltefestlegen//div
-            divMusic = document.createElement("div");
-            divMusic.setAttribute("class", "music");
-
-            //divMusic wird an div("masterSales") angehängt
-            saleDiv.appendChild(divMusic);
-
-            //Inahltefestlegen//Pictures
-            let img: HTMLImageElement = document.createElement("img");
-            img.setAttribute("src", jsonObj[index].image);
-            img.setAttribute("alt", "Music Covers");
-
-
-            //Inhalte festlegen//Beschreibungen (Titel, Interpret, Album, Preis)
-            let pTitel: HTMLElement = document.createElement("p");
-            pTitel.setAttribute("class", "text");
-
-            let pAlbum: HTMLElement = document.createElement("p");
-            pAlbum.setAttribute("class", "text");
-
-            let pInterpret: HTMLElement = document.createElement("p");
-            pInterpret.setAttribute("class", "text");
-
-            let pPrice: HTMLElement = document.createElement("a");
-            pPrice.setAttribute("class", "text");
-
-
-            //Inhalte festlegen//Warenkorb icon
-            let button: HTMLElement = document.createElement("a");
-            button.setAttribute("title", "Ab in den Warenkorb!");
-            button.setAttribute("class", "fas fa-shopping-bag");
-            button.setAttribute("href", "#fas fa-shopping-bag");
-
-            //Jeder "button" der generiert wird, bekommt ein Eventlistener
-            button.addEventListener("click", onClickButton.bind(jsonObj[index]));
-
-
-            //Inhalte festlegen//Audios
-            let audio: HTMLAudioElement = document.createElement("audio");
-            audio.setAttribute("controls", "");
-            audio.setAttribute("src", jsonObj[index].audio);
-            audio.setAttribute("class", "pAudio");
-            audio.setAttribute("alt", "Audio Lines");
-
-
-            //Inhalte generieren
-            //Inhalte generieren//Pictures
-            divMusic.appendChild(img);
-
-            //Inhalte generieren//Warenkorb
-            divMusic.appendChild(button).innerHTML = "Preis: " + jsonObj[index].preis + "€";
-
-            //Inhalte generieren//Beschreibungen
-            divMusic.appendChild(pTitel).innerHTML = jsonObj[index].titel;
-            divMusic.appendChild(pAlbum).innerHTML = jsonObj[index].ablum;
-            divMusic.appendChild(pInterpret).innerHTML = jsonObj[index].interpret;
-
-            //Inhalte generieren//Audio
-            divMusic.appendChild(audio).innerHTML = jsonObj[index].audio;
-
-
-        }
-        return divMusic;
-
-    }
-    function toStorage(_article: Artikel): void {
+    export function toStorage(_article: Artikel): void {
         let inhalt: string = JSON.stringify(_article);
         localStorage.setItem(_article.titel, inhalt);
         console.log(localStorage);
     }
+
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(this: Artikel, _click: MouseEvent): void {
         articlePriceCounter += this.preis;
@@ -209,8 +139,10 @@ namespace Abgabe07 {
         else {
             basketNumber.innerHTML = "";
         }
-        localStorage.clear();
+        
         toStorage(this);
+       // localStorage.setItem("totalPrice", String(articlePriceCounter));
+       // localStorage.setItem("totalPrice", String(articleCounter));
     }
 
 
@@ -234,11 +166,11 @@ namespace Abgabe07 {
         let onClick: String = <String>this.getAttribute("href");
         switch (onClick) {
             case "#Everything": showEverthing();
-                                break;
+                break;
             case "#Sales": showSales();
-                           break;
+                break;
             case "#Favoriten": showFavorites();
-                               break;
+                break;
         }
     }
 
