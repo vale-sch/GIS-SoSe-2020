@@ -129,7 +129,7 @@ namespace Abgabe07 {
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(this: Artikel, _click: MouseEvent): void {
         articlePriceCounter += this.preis;
-
+      
         let basketNumber: HTMLLIElement = <HTMLLIElement>document.querySelector("li:last-child");
         let standardBasket: HTMLElement = document.createElement("i");
         standardBasket.setAttribute("class", "fas fa-shopping-basket");
