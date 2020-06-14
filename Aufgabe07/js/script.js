@@ -102,8 +102,6 @@ var Abgabe07;
             basketNumber.innerHTML = "";
         }
         toStorage(this);
-        // localStorage.setItem("totalPrice", String(articlePriceCounter));
-        localStorage.setItem("totalPrice", String(articleCounter));
     }
     //Funktion um erste 3 Elemente aus der Navigation zu selektieren und sie dann an den Eventlistener("onCLickNavBar") zu binden 
     function loadNavListeners() {

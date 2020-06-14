@@ -143,8 +143,6 @@ namespace Abgabe07 {
         }
 
         toStorage(this);
-        // localStorage.setItem("totalPrice", String(articlePriceCounter));
-        localStorage.setItem("totalPrice", String(articleCounter));
     }
 
 
