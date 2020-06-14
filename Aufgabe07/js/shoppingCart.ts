@@ -104,10 +104,8 @@ namespace Abgabe07 {
         clearAll.setAttribute("class", "fas fa-trash-alt");
         clearAll.setAttribute("href", "#fas fa-trash-alt");
         clearAll.addEventListener("click", onClickDeleteAll.bind(article));
+
         countPriceandArticles();
-
-
-       
 
     }
 
@@ -115,23 +113,34 @@ namespace Abgabe07 {
     function countPriceandArticles(): void {
 
         let informationArticle: HTMLDivElement = <HTMLDivElement> document.querySelector("#informationArticle");
+
         let totalPriceElement: HTMLElement = document.createElement("p");
         let totalArticleElement: HTMLElement = document.createElement("p");
 
-        totalArticle = localStorage.length;
+        //Kleines Extra ohne Funktion
+        let goFurther: HTMLElement = document.createElement("a");
+        goFurther.setAttribute("class", "fas fa-cash-register");
+        goFurther.setAttribute("href", "#fas fa-cash-register");
+        
 
+        totalArticle = localStorage.length;
+        informationArticle.appendChild(goFurther).innerHTML = "Checkout";
         informationArticle.appendChild(totalArticleElement).innerHTML = "Artikelanzahl: " + totalArticle;
         informationArticle.appendChild(totalPriceElement).innerHTML = "Summe: " + Math.round((totalPriceArticles + Number.EPSILON) * 100) / 100 + " €";
-        informationArticle.appendChild(clearAll).innerHTML = " Alle Artikel aus dem Warenkorb entfernen";
+       
+        informationArticle.appendChild(clearAll).innerHTML = " Warenkorb leeren";
+       
+      
+
     }
 
-    function onClickDeleteAll(this: Artikel, _click: MouseEvent): void {
+    function onClickDelete(this: Artikel, _click: MouseEvent): void {
 
         localStorage.removeItem(this.titel);
         location.reload();
 
     }
-    function onClickDelete(_click: MouseEvent): void {
+    function onClickDeleteAll(_click: MouseEvent): void {
 
         localStorage.clear();
         location.reload();

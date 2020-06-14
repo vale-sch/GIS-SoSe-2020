@@ -75,8 +75,8 @@ namespace Abgabe07 {
             let pInterpret: HTMLElement = document.createElement("p");
             pInterpret.setAttribute("class", "text");
 
-            let pPrice: HTMLElement = document.createElement("a");
-            pPrice.setAttribute("class", "text");
+            let pPrice: HTMLElement = document.createElement("i");
+            
 
 
             //Inhalte festlegen//Warenkorb icon
@@ -102,7 +102,7 @@ namespace Abgabe07 {
             divMusic.appendChild(img);
 
             //Inhalte generieren//Warenkorb
-            divMusic.appendChild(button).innerHTML = "Preis: " + jsonObj[index].preis + "€";
+            divMusic.appendChild(button).innerHTML = "Kauf mich!";
 
             //Inhalte generieren//Beschreibungen
             divMusic.appendChild(pTitel).innerHTML = jsonObj[index].titel;
@@ -111,6 +111,8 @@ namespace Abgabe07 {
 
             //Inhalte generieren//Audio
             divMusic.appendChild(audio).innerHTML = jsonObj[index].audio;
+
+            divMusic.appendChild(pPrice).innerHTML = "Preis: " + jsonObj[index].preis + "€";
 
 
 

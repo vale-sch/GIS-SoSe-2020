@@ -76,16 +76,21 @@ var Abgabe07;
         let informationArticle = document.querySelector("#informationArticle");
         let totalPriceElement = document.createElement("p");
         let totalArticleElement = document.createElement("p");
+        //Kleines Extra ohne Funktion
+        let goFurther = document.createElement("a");
+        goFurther.setAttribute("class", "fas fa-cash-register");
+        goFurther.setAttribute("href", "#fas fa-cash-register");
         totalArticle = localStorage.length;
+        informationArticle.appendChild(goFurther).innerHTML = "Checkout";
         informationArticle.appendChild(totalArticleElement).innerHTML = "Artikelanzahl: " + totalArticle;
         informationArticle.appendChild(totalPriceElement).innerHTML = "Summe: " + Math.round((totalPriceArticles + Number.EPSILON) * 100) / 100 + " €";
-        informationArticle.appendChild(clearAll).innerHTML = " Alle Artikel aus dem Warenkorb entfernen";
+        informationArticle.appendChild(clearAll).innerHTML = " Warenkorb leeren";
     }
-    function onClickDeleteAll(_click) {
+    function onClickDelete(_click) {
         localStorage.removeItem(this.titel);
         location.reload();
     }
-    function onClickDelete(_click) {
+    function onClickDeleteAll(_click) {
         localStorage.clear();
         location.reload();
     }

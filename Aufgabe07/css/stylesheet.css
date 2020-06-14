@@ -22,6 +22,7 @@ body {
 .pAudio {
     display: block;
     margin: 0 auto;
+    margin-bottom: 5%;
 }
 
 .text {
@@ -77,7 +78,7 @@ nav ul li {
 
 nav a {
     display: block;
-    padding: 0 20px;
+    padding: 5px 20px;
     color: #FFF;
     font-size: 20px;
     line-height: 60px;
@@ -93,7 +94,27 @@ nav a:hover {
 }
 
 #headline {
-    font-size: 35px;
+    font-size: 40px;
+    color: black;
+    animation: colorRotate 6s linear 0s infinite;
+}
+
+@keyframes colorRotate {
+    from {
+        color: #6666ff;
+    }
+    25% {
+        color: #0099ff;
+    }
+    50% {
+        color: #00ff00;
+    }
+    75% {
+        color: #ff3399;
+    }
+    100% {
+        color: #6666ff;
+    }
 }
 
 .music {
@@ -135,6 +156,8 @@ nav a:hover {
 }
 
 h1 {
+    margin-top: 2%;
+    margin-bottom: 2%;
     display: block;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 55px;
@@ -161,12 +184,17 @@ h1 {
     margin: 1px 2px 1px 2px;
 }
 
-#sales {
+#Sales007 {
     color: gold;
 }
 
-#favoriten {
+#Favoriten007 {
     color: tomato;
+}
+
+#fontawesome {
+    font-size: 50px;
+    color: black;
 }
 
 #basketNumber {
@@ -280,7 +308,10 @@ textarea {
     }
 }
 
-@media screen and (min-width:712px) and (max-width: 1439px) {
+@media screen and (min-width:712px) and (max-width: 1480px) {
+    #zusatzHeadline {
+        display: none;
+    }
     #warenkorbDiv {
         display: grid;
         grid-template-columns: auto auto;
@@ -308,6 +339,19 @@ textarea {
         max-height: 600px;
         padding: 16px 18px 32px 18px;
         margin: 16px 18px 32px 18x;
+    }
+}
+
+@media screen and (max-width:1100px) {
+    #logo {
+        display: block;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        float: none;
+    }
+    #zusatzHeadline {
+        display: none;
     }
 }
 

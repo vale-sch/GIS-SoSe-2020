@@ -54,8 +54,7 @@ var Abgabe07;
             pAlbum.setAttribute("class", "text");
             let pInterpret = document.createElement("p");
             pInterpret.setAttribute("class", "text");
-            let pPrice = document.createElement("a");
-            pPrice.setAttribute("class", "text");
+            let pPrice = document.createElement("i");
             //Inhalte festlegen//Warenkorb icon
             let button = document.createElement("a");
             button.setAttribute("title", "Ab in den Warenkorb!");
@@ -73,13 +72,14 @@ var Abgabe07;
             //Inhalte generieren//Pictures
             divMusic.appendChild(img);
             //Inhalte generieren//Warenkorb
-            divMusic.appendChild(button).innerHTML = "Preis: " + Abgabe07.jsonObj[index].preis + "€";
+            divMusic.appendChild(button).innerHTML = "Kauf mich!";
             //Inhalte generieren//Beschreibungen
             divMusic.appendChild(pTitel).innerHTML = Abgabe07.jsonObj[index].titel;
             divMusic.appendChild(pAlbum).innerHTML = Abgabe07.jsonObj[index].ablum;
             divMusic.appendChild(pInterpret).innerHTML = Abgabe07.jsonObj[index].interpret;
             //Inhalte generieren//Audio
             divMusic.appendChild(audio).innerHTML = Abgabe07.jsonObj[index].audio;
+            divMusic.appendChild(pPrice).innerHTML = "Preis: " + Abgabe07.jsonObj[index].preis + "€";
         }
     }
     Abgabe07.generateArticles = generateArticles;
