@@ -9,29 +9,28 @@ namespace Abgabe07 {
     let clearAll: HTMLElement;
     window.addEventListener("load", init);
 
+
+
     function init(_event: Event): void {
         containerMusic = <HTMLDivElement>document.querySelector("#warenkorbDiv");
        
         buildArticles();
     }
+
+    //build all Articles from Storage
     function buildArticles(): void {
 
        
 
         for (let index: number = 0; index <= localStorage.length - 1; index++) {
       
-            
+            //get Data from localStorage
             let articleKey: string = <string>localStorage.key(index);
             let jsonString: string = <string>localStorage.getItem(articleKey);
             article = <Artikel>JSON.parse(jsonString);
-            
-
-            totalPriceArticles += article.preis;
+          
            
             
-
-
-
             //Inhaltefestlegen//div
             divMusic = document.createElement("div");
             divMusic.setAttribute("class", "music");
@@ -55,8 +54,8 @@ namespace Abgabe07 {
             let pInterpret: HTMLElement = document.createElement("p");
             pInterpret.setAttribute("class", "text");
 
-            let pPrice: HTMLElement = document.createElement("p");
-            pPrice.setAttribute("class", "text");
+            let pPrice: HTMLElement = document.createElement("i");
+           
 
 
             //Inhalte festlegen//Warenkorb icon
@@ -85,19 +84,25 @@ namespace Abgabe07 {
             divMusic.appendChild(button).innerHTML = "Delete";
 
             //Inhalte generieren//Beschreibungen
-            divMusic.appendChild(pPrice).innerHTML = "Preis: " + article.preis;
+         
             divMusic.appendChild(pTitel).innerHTML = article.titel;
             divMusic.appendChild(pAlbum).innerHTML = article.ablum;
             divMusic.appendChild(pInterpret).innerHTML = article.interpret;
 
-            //Inhalte generieren//Audio
-            divMusic.appendChild(audio).innerHTML = article.audio;
+            //Inhalte generieren//Preis
+            divMusic.appendChild(pPrice).innerHTML = "Preis: " + article.preis;
 
+              
+            //counting Prices
+            totalPriceArticles += article.preis;
 
 
         }
+
+        //create clickable clearAll Button 
         clearAll = document.createElement("a");
-        clearAll.setAttribute("href", "#jo");
+        clearAll.setAttribute("class", "fas fa-trash-alt");
+        clearAll.setAttribute("href", "#fas fa-trash-alt");
         clearAll.addEventListener("click", onClickDeleteAll.bind(article));
         countPriceandArticles();
 
@@ -105,22 +110,29 @@ namespace Abgabe07 {
        
 
     }
+
+    //function for Article Overview + append clearAll Button
     function countPriceandArticles(): void {
 
-        let informationArticle: HTMLDivElement = <HTMLDivElement> document.querySelector("#totalPrice");
+        let informationArticle: HTMLDivElement = <HTMLDivElement> document.querySelector("#informationArticle");
         let totalPriceElement: HTMLElement = document.createElement("p");
         let totalArticleElement: HTMLElement = document.createElement("p");
 
         totalArticle = localStorage.length;
-        informationArticle.appendChild(clearAll).innerHTML = "Alles entfernen";
-        informationArticle.appendChild(totalPriceElement).innerHTML = "Summe: " + Math.round((totalPriceArticles + Number.EPSILON) * 100) / 100;
+
         informationArticle.appendChild(totalArticleElement).innerHTML = "Artikelanzahl: " + totalArticle;
+        informationArticle.appendChild(totalPriceElement).innerHTML = "Summe: " + Math.round((totalPriceArticles + Number.EPSILON) * 100) / 100 + " €";
+        informationArticle.appendChild(clearAll).innerHTML = " Alle Artikel aus dem Warenkorb entfernen";
     }
+
     function onClickDeleteAll(this: Artikel, _click: MouseEvent): void {
+
         localStorage.removeItem(this.titel);
         location.reload();
+
     }
     function onClickDelete(_click: MouseEvent): void {
+
         localStorage.clear();
         location.reload();
     }
