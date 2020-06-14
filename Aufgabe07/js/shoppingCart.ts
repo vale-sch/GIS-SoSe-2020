@@ -126,7 +126,7 @@ namespace Abgabe07 {
         totalArticle = localStorage.length;
         informationArticle.appendChild(goFurther).innerHTML = "Checkout";
         informationArticle.appendChild(totalArticleElement).innerHTML = "Artikelanzahl: " + totalArticle;
-        informationArticle.appendChild(totalPriceElement).innerHTML = "Gesamtpreis: " + Math.round((totalPriceArticles + Number.EPSILON) * 100) / 100 + " €" + "zzgl. 3€ Versandkosten";
+        informationArticle.appendChild(totalPriceElement).innerHTML = "Gesamtpreis: " + Math.round((totalPriceArticles + Number.EPSILON) * 100) / 100 + " €" + " zzgl. 3€ Versandkosten";
        
         informationArticle.appendChild(clearAll).innerHTML = " Warenkorb leeren";
        
