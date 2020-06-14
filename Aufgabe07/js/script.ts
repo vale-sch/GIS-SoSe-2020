@@ -123,13 +123,13 @@ namespace Abgabe07 {
     export function toStorage(_article: Artikel): void {
         let inhalt: string = JSON.stringify(_article);
         localStorage.setItem(_article.titel, inhalt);
-        console.log(localStorage);
+        
     }
 
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(this: Artikel, _click: MouseEvent): void {
         articlePriceCounter += this.preis;
-        console.log("Summe: " + Math.round((articlePriceCounter + Number.EPSILON) * 100) / 100);
+        
         let basketNumber: HTMLLIElement = <HTMLLIElement>document.querySelector("li:last-child");
         let standardBasket: HTMLElement = document.createElement("i");
         standardBasket.setAttribute("class", "fas fa-shopping-basket");
