@@ -7,7 +7,7 @@ var aufgabe08;
     test08();
     async function test08() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://compaktdisk.herokuapp.com";
+        let url = "https://compaktdisk.herokuapp.com/";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         url += url + "?" + query.toString();
