@@ -1,0 +1,22 @@
+{
+    "name": "compaktdisk",
+    "version": "1.0.0",
+    "description": "valentinschmidberger",
+    "main": "index.js",
+    "scripts": {
+        "start": "node Aufgabe08/test.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vale-sch/GIS-SoSe2020.git"
+    },
+    "bugs": {
+        "url": "https://github.com/vale-sch/GIS-SoSe2020/issues"
+    },
+    "homepage": "https://github.com/vale-sch/GIS-SoSe2020#readme",
+    "dependencies": {
+        "@types/node": "^14.0.13"
+    }
+}
