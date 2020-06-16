@@ -5,7 +5,7 @@ export namespace aufgabe08 {
    
     async function test08(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://compaktdisk.herokuapp.com";
+        let url: string = "https://compaktdisk.herokuapp.com/";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url += url + "?" + query.toString();
