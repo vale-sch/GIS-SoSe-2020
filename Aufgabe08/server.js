@@ -15,17 +15,8 @@ var A08Server;
     function handleListen() {
         console.log("Listening");
     }
-    async function fetchURl() {
-        let formData = new FormData(document.forms[0]);
-        let url = "https://compaktdisk.herokuapp.com/";
-        // tslint:disable-next-line: no-any
-        let query = new URLSearchParams(formData);
-        url += url + "?" + query.toString();
-        await fetch(url);
-    }
     function handleRequest(_request, _response) {
         console.log("I hear voices!");
-        fetchURl();
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.write(_request.url);
