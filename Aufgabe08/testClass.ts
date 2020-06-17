@@ -6,7 +6,6 @@ namespace A08Server {
   async function onClickButton(_click: MouseEvent): Promise<void> {
     let formData: FormData = new FormData(document.forms[0]);
     let url: string = "https://compaktdisk.herokuapp.com/";
-  
     // tslint:disable-next-line: no-any
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     url += "?" + query.toString();
@@ -17,7 +16,7 @@ namespace A08Server {
     console.log(urlAusgeben);
   }
   async function init(_event: Event): Promise<void> {
-    navLi = <HTMLButtonElement>document.querySelector("#button");
+    navLi = <HTMLButtonElement>document.querySelector("#hallo");
     navLi.addEventListener("click", onClickButton.bind(navLi));
   }
 }

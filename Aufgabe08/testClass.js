@@ -15,7 +15,7 @@ var A08Server;
         console.log(urlAusgeben);
     }
     async function init(_event) {
-        navLi = document.querySelector("#button");
+        navLi = document.querySelector("#hallo");
         navLi.addEventListener("click", onClickButton.bind(navLi));
     }
 })(A08Server || (A08Server = {}));
