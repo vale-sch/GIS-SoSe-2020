@@ -4,7 +4,7 @@
     "description": "valentinschmidberger",
     "main": "index.js",
     "scripts": {
-        "start": "node Aufgabe08/test.js"
+        "start": "node Aufgabe08/server.js"
     },
     "author": "",
     "license": "ISC",
