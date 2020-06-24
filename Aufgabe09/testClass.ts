@@ -31,11 +31,9 @@ namespace A09Server {
     let response: Response = await fetch(url);
 
     let responseText: string = await response.text();
-    
 
     responseJson = JSON.parse(responseText);
 
-    console.clear();
     console.log(responseText);
     console.log(responseJson);
     

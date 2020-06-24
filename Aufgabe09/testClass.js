@@ -27,7 +27,6 @@ var A09Server;
         let response = await fetch(url);
         let responseText = await response.text();
         responseJson = JSON.parse(responseText);
-        console.clear();
         console.log(responseText);
         console.log(responseJson);
         div.appendChild(text).innerHTML = "Eingabe: " + responseText;
