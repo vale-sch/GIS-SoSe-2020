@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="testClass.js"></script>
+    <title>formular-test</title>
+</head>
+
+<body>
+    <h2>Login</h2>
+
+    <form method="GET" action="https://compaktdisk.herokuapp.com/">
+        <label for="Vorname">First name:</label><br>
+        <input type="text" id="fname" name="Vorname" value="John"><br>
+        <label for="Nachname">Last Name:</label><br>
+        <input type="text" id="lname" name="Nachname" value="Deer"><br>
+        <label for="Email">E-Mail:</label><br>
+        <input type="email" id="email" name="Email" value="DeerJohn@provider.de"><br>
+        <label for="Passwort">Passwort:</label><br>
+        <input type="password" id="pass" name="Passwort" value="Apfelstrudel2323"><br>
+        <button type="submit">Server</button>
+        <button type="button" id="hallo">HTML/no submit</button>
+    </form>
+    <h1> Hier wird die obige Eingabe genriert:</h1>
+</body>
+
+</html>
