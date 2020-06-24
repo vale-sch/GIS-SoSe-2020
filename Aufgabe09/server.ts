@@ -26,21 +26,30 @@ export namespace A09Server {
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
     let adresse: string = <string>_request.url;
-    //Adresse parsen (umwandeln):
     let q: url.UrlWithParsedQuery = url.parse(adresse, true);
-
-    let jsonString: string = JSON.stringify(q.query);
-    _response.write(jsonString);
-    /*if (_request.url) {
-        for (let key in q.query) {
-          _response.write(key + ":    " + q.query[key] + "<br/>");
-          
-        }
-      }*/
+    let pathname: string = <string>q.pathname;
+    //Adresse parsen (umwandeln):
 
 
-    console.log("Response successful");
-    _response.end();
+    if (_request.url) {
+      if (pathname == "/json") {
+        let jsonString: string = JSON.stringify(q.query);
 
+        _response.write(jsonString);
+      } else if (pathname == "/html") {
+        
+          for (let key in q.query) {
+            _response.write(key + ":    " + q.query[key] + "<br/>");
+
+          }
+        
+
+      }
+
+      
+      console.log("Response successful");
+      _response.end();
+
+    }
   }
 }

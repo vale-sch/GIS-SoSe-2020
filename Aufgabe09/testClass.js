@@ -6,7 +6,6 @@ var A09Server;
     let navLi1;
     let div;
     let text;
-    let responseJson;
     async function init(_event) {
         div = document.querySelector("h1");
         text = document.createElement("p");
@@ -14,29 +13,37 @@ var A09Server;
         navLi0 = document.querySelector("#button0");
         navLi1 = document.querySelector("#button1");
         //onClickButton wird bei einem Click auf den Button ausgeführt
-        navLi0.addEventListener("click", onClickButton0.bind(navLi0));
-        navLi1.addEventListener("click", onClickButton1.bind(navLi1));
+        navLi0.addEventListener("click", onClickButtonHTML.bind(navLi0));
+        navLi1.addEventListener("click", onClickButtonJSON.bind(navLi1));
+        div.append(text);
     }
-    async function onClickButton0(_click) {
-        let url = "https://compaktdisk.herokuapp.com/";
+    async function onClickButtonHTML(_click) {
+        let _isHTML = true;
+        let url = "http://localhost:8100";
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
+        url += _isHTML ? "/html" : "/json";
         url += "?" + query.toString();
+        //console.log(url);
         let response = await fetch(url);
         let responseText = await response.text();
-        div.appendChild(text).innerHTML = "Eingabe: " + responseText;
+        text.innerHTML = responseText;
     }
-    async function onClickButton1(_click) {
-        let url = "https://compaktdisk.herokuapp.com/";
+    async function onClickButtonJSON(_click) {
+        let _isHTML = false;
+        let url = "http://localhost:8100";
         let formData = new FormData(document.forms[0]);
-        //Form-Element aus der HTML Datei ziehen
+        //Form-Element aus der HTML Datei zieh
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
+        url += _isHTML ? "/html" : "/json";
         url += "?" + query.toString();
+        //console.log(url);
         let response = await fetch(url);
         let responseText = await response.text();
-        responseJson = JSON.parse(responseText);
+        text.innerHTML = "JSON-Objekt: " + responseText;
+        let responseJson = JSON.parse(responseText);
         console.log(responseJson);
     }
 })(A09Server || (A09Server = {}));

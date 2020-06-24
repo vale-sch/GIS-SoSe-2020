@@ -26,18 +26,22 @@ var A09Server;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let adresse = _request.url;
-        //Adresse parsen (umwandeln):
         let q = url.parse(adresse, true);
-        let jsonString = JSON.stringify(q.query);
-        _response.write(jsonString);
-        /*if (_request.url) {
-            for (let key in q.query) {
-              _response.write(key + ":    " + q.query[key] + "<br/>");
-              
+        let pathname = q.pathname;
+        //Adresse parsen (umwandeln):
+        if (_request.url) {
+            if (pathname == "/json") {
+                let jsonString = JSON.stringify(q.query);
+                _response.write(jsonString);
             }
-          }*/
-        console.log("Response successful");
-        _response.end();
+            else if (pathname == "/html") {
+                for (let key in q.query) {
+                    _response.write(key + ":    " + q.query[key] + "<br/>");
+                }
+            }
+            console.log("Response successful");
+            _response.end();
+        }
     }
 })(A09Server = exports.A09Server || (exports.A09Server = {}));
 //# sourceMappingURL=server.js.map
