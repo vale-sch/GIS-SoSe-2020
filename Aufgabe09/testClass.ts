@@ -21,7 +21,7 @@ namespace A09Server {
 
   async function onClickButtonHTML(_click: MouseEvent): Promise<void> {
     let _isHTML: boolean = true;
-    let url: string = "http://localhost:8100";
+    let url: string = "https://compaktdisk.herokuapp.com";
     let formData: FormData = new FormData(document.forms[0]);
     
     // tslint:disable-next-line: no-any
@@ -38,7 +38,7 @@ namespace A09Server {
   }
   async function onClickButtonJSON(_click: MouseEvent): Promise<void> {
     let _isHTML: boolean = false;
-    let url: string = "http://localhost:8100";
+    let url: string = "https://compaktdisk.herokuapp.com";
     let formData: FormData = new FormData(document.forms[0]);
     //Form-Element aus der HTML Datei zieh
     // tslint:disable-next-line: no-any
