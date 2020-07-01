@@ -17,6 +17,8 @@
     },
     "homepage": "https://github.com/vale-sch/GIS-SoSe2020#readme",
     "dependencies": {
-        "@types/node": "^14.0.13"
+        "@types/mongodb": "^3.5.25",
+        "@types/node": "^14.0.13",
+        "mongodb": "^3.5.9"
     }
 }
