@@ -19,7 +19,7 @@ var A09Server;
     }
     async function onClickButtonHTML(_click) {
         let _isHTML = true;
-        let url = "https://compaktdisk.herokuapp.com";
+        let url = "http://localhost:8100";
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
@@ -32,7 +32,7 @@ var A09Server;
     }
     async function onClickButtonJSON(_click) {
         let _isHTML = false;
-        let url = "https://compaktdisk.herokuapp.com";
+        let url = "http://localhost:8100";
         let formData = new FormData(document.forms[0]);
         //Form-Element aus der HTML Datei zieh
         // tslint:disable-next-line: no-any

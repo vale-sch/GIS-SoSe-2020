@@ -34,12 +34,12 @@ export namespace A09Server {
     if (_request.url) {
       if (pathname == "/json") {
         let jsonString: string = JSON.stringify(q.query);
-        _response.setHeader("content-type", "text/html; charset-utf-8");
+        //_response.setHeader("content-type", "text/html; charset-utf-8");
         _response.write(jsonString);
       } else if (pathname == "/html") {
         
           for (let key in q.query) {
-            _response.setHeader("content-type" , "json(application");
+            //_response.setHeader("content-type" , "json/application");
             _response.write(key + ":    " + q.query[key] + "<br/>");
 
           }
