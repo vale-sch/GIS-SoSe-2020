@@ -61,7 +61,7 @@ namespace A11Server {
     let response: Response = await fetch(url);
     let responseText: string = await response.text();
    // location.reload();
-    text.innerHTML = "Json Objekt aufgedruselt:" + "<br/>" + responseText;
+    text.innerHTML = "Gepushtes Json Objekt aufgedruselt:" + "<br/>" + responseText;
 
   }
   async function onClickButtonClearData(_click: MouseEvent): Promise <void> { 

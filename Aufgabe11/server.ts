@@ -117,6 +117,7 @@ export namespace A11Server {
     //tslint:disable-next-line: no-any
 
     receivedData = await datas.find().toArray();
+    
     _response.write(JSON.stringify(receivedData));
 
     _response.end();

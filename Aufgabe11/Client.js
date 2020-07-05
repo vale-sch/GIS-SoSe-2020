@@ -48,7 +48,7 @@ var A11Server;
         let response = await fetch(url);
         let responseText = await response.text();
         // location.reload();
-        text.innerHTML = "Json Objekt aufgedruselt:" + "<br/>" + responseText;
+        text.innerHTML = "Gepushtes Json Objekt aufgedruselt:" + "<br/>" + responseText;
     }
     async function onClickButtonClearData(_click) {
         //let url: string = "http://localhost:8100";
