@@ -13,7 +13,7 @@ export namespace A11Server {
   }
 
   let server: Http.Server = Http.createServer();
-
+  let receivedData: Data[];
   let port: number | string | undefined = process.env.PORT;
   let datas: Mongo.Collection;
   let databaseUrl: string[] = ["mongodb+srv://SchmidbergerValentin:tixzo1-Qofqir-bazruf@schmidbergervalentin.kklg0.mongodb.net/Database?retryWrites=true&w=majority", "mongodb://localhost:27019"];
@@ -91,41 +91,48 @@ export namespace A11Server {
 
 
     if (_request.url) {
-      switch (pathname) {
-        case "retrieve":
-          _response.write(receiveDatas());
-          break;
-        case "noretrieve":
-          break;
+      if (pathname == "/receive") {
 
+        receiveDatas();
       }
+
+
+
+      else if (pathname == "/noReceive") {
+        console.log("HAAAAALOOOO");
+      }
+
+
+
     }
 
-    for (let key in _url.query) {
-      //_response.setHeader("content-type" , "json/application");
-      _response.write(key + ":    " + _url.query[key] + "<br/>");
 
+    /* for (let key in _url.query) {
+       //_response.setHeader("content-type" , "json/application");
+       _response.write(key + ":    " + _url.query[key] + "<br/>");
+  
+     }*/
+
+
+    async function receiveDatas(): Promise<void> {
+
+      //tslint:disable-next-line: no-any
+
+      receivedData = await datas.find().toArray();
+      _response.write(JSON.stringify(receivedData));
+      _response.end();
+     
     }
-
-
-
 
 
     storeDatas(_url.query);
     console.log("Response successful");
-    _response.end();
+  
 
   }
 
   function storeDatas(_datas: Data): void {
     datas.insertOne(_datas);
   }
-  async function receiveDatas(): Promise<Data[]> {
 
-    //tslint:disable-next-line: no-any
-    let receivedData: Data[];
-    receivedData = await datas.find().toArray();
-    //console.log(receivedData);
-    return receivedData;
-  }
 }

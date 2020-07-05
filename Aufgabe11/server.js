@@ -8,6 +8,7 @@ const Mongo = require("mongodb");
 var A11Server;
 (function (A11Server) {
     let server = Http.createServer();
+    let receivedData;
     let port = process.env.PORT;
     let datas;
     let databaseUrl = ["mongodb+srv://SchmidbergerValentin:tixzo1-Qofqir-bazruf@schmidbergervalentin.kklg0.mongodb.net/Database?retryWrites=true&w=majority", "mongodb://localhost:27019"];
@@ -63,31 +64,29 @@ var A11Server;
         //let jsonString: string = JSON.stringify(_url.query);
         //Adresse parsen (umwandeln):
         if (_request.url) {
-            switch (pathname) {
-                case "retrieve":
-                    _response.write(receiveDatas());
-                    break;
-                case "noretrieve":
-                    break;
+            if (pathname == "/receive") {
+                receiveDatas();
+            }
+            else if (pathname == "/noReceive") {
+                console.log("HAAAAALOOOO");
             }
         }
-        for (let key in _url.query) {
-            //_response.setHeader("content-type" , "json/application");
-            _response.write(key + ":    " + _url.query[key] + "<br/>");
+        /* for (let key in _url.query) {
+           //_response.setHeader("content-type" , "json/application");
+           _response.write(key + ":    " + _url.query[key] + "<br/>");
+      
+         }*/
+        async function receiveDatas() {
+            //tslint:disable-next-line: no-any
+            receivedData = await datas.find().toArray();
+            _response.write(JSON.stringify(receivedData));
+            _response.end();
         }
         storeDatas(_url.query);
         console.log("Response successful");
-        _response.end();
     }
     function storeDatas(_datas) {
         datas.insertOne(_datas);
-    }
-    async function receiveDatas() {
-        //tslint:disable-next-line: no-any
-        let receivedData;
-        receivedData = await datas.find().toArray();
-        //console.log(receivedData);
-        return receivedData;
     }
 })(A11Server = exports.A11Server || (exports.A11Server = {}));
 //# sourceMappingURL=server.js.map

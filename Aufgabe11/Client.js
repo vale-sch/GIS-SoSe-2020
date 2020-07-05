@@ -10,40 +10,42 @@ var A11Server;
         div = document.querySelector("h1");
         text = document.createElement("p");
         //Der Button mit der id hallo wird in dem Element navLi eingespeichert
-        navLi0 = document.querySelector("#retrieve");
-        navLi1 = document.querySelector("#noretrieve");
+        navLi0 = document.querySelector("#receive");
+        navLi1 = document.querySelector("#noreceive");
         //onClickButton wird bei einem Click auf den Button ausgeführt
         navLi0.addEventListener("click", onClickButtonRet.bind(navLi0));
         navLi1.addEventListener("click", onClickButtonNoRet.bind(navLi1));
         div.append(text);
     }
     async function onClickButtonRet(_click) {
-        let _isRetrieve = true;
+        let _isReceive = true;
+        //let url: string = "http://localhost:8100";
         let url = "https://compaktdisk.herokuapp.com";
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         // url += "/";
-        url += _isRetrieve ? "/retrieve" : "/noRetrieve";
+        url += _isReceive ? "/receive" : "/noReceive";
         url += "?" + query.toString();
         //console.log(url);
         let response = await fetch(url);
-        //let responseText: string = await response.text();
-        console.log(response);
+        let responseText = await response.text();
+        let responseJson = JSON.parse(responseText);
+        text.innerHTML = "JSON-Objekt: " + responseText;
+        console.log(responseJson);
     }
     async function onClickButtonNoRet(_click) {
         let _isRetrieve = false;
+        //let url: string = "http://localhost:8100";
         let url = "https://compaktdisk.herokuapp.com";
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         // url += "/";
-        url += _isRetrieve ? "/retrieve" : "/noRetrieve";
+        url += _isRetrieve ? "/receive" : "/noReceive";
         url += "?" + query.toString();
-        //console.log(url);
-        let response = await fetch(url);
-        //let responseText: string = await response.text();
-        console.log(response);
+        text.innerHTML = "No-Receive: " + url;
+        console.log("NoResponse");
     }
 })(A11Server || (A11Server = {}));
 //# sourceMappingURL=Client.js.map
