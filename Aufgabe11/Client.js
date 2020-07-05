@@ -61,6 +61,7 @@ var A11Server;
         url += "?" + query.toString();
         //console.log(url);
         let response = await fetch(url);
+        text.innerHTML = "Database cleared";
     }
 })(A11Server || (A11Server = {}));
 //# sourceMappingURL=Client.js.map

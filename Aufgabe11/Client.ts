@@ -77,6 +77,8 @@ namespace A11Server {
     url +=  "/clearData";
     url += "?" + query.toString();
     //console.log(url);
+    
     let response: Response = await fetch(url);
+    text.innerHTML = "Database cleared";
   }
 }
