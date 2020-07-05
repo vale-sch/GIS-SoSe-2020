@@ -1,22 +1,54 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.A09Server = void 0;
+exports.A11Server = void 0;
 const Http = require("http");
 const url = require("url");
+const Mongo = require("mongodb");
 //import { ParsedUrlQuery } from "querystring";
-var A09Server;
-(function (A09Server) {
-    console.log("Starting server");
-    //eine Port-Nummer wird vergeben
-    let port = Number(process.env.PORT);
-    //Wenn port nicht erreichbar ist, soll der Port den Wert 8100 annehmen --> localhost:8100
+var A11Server;
+(function (A11Server) {
+    let server = Http.createServer();
+    let port = process.env.PORT;
+    let datas;
+    let databaseUrl = ["mongodb+srv://SchmidbergerValentin:tixzo1-Qofqir-bazruf@schmidbergervalentin.kklg0.mongodb.net/Database?retryWrites=true&w=majority", "mongodb://localhost:27019"];
+    //mongodb+srv://SchmidbergerValentin:tixzo1-Qofqir-bazruf@schmidbergervalentin.kklg0.mongodb.net/Database?retryWrites=true&w=majority
+    //let databaseUrl: string = ;
     if (!port)
         port = 8100;
-    //Server und zugehörige listener werden erstellt/geaddet
-    let server = Http.createServer();
     server.addListener("request", handleRequest);
     server.addListener("listening", handleListen);
     server.listen(port);
+    startServer(port);
+    connectToDatabase(databaseUrl);
+    function startServer(_port) {
+        port = Number(process.env.PORT);
+        console.log("Starting server");
+    }
+    async function connectToDatabase(_url) {
+        let myArgs = process.argv.slice(2);
+        let switchURL;
+        switch (myArgs[0]) {
+            case "local":
+                switchURL = databaseUrl[1];
+                console.log("switched to local database");
+                break;
+            case "remote":
+                switchURL = databaseUrl[0];
+                console.log("switched to remote server");
+                break;
+            default:
+                switchURL = databaseUrl[1];
+                console.log("Sorry, that is not something I know how to do, local will beeing used");
+        }
+        let options = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient = new Mongo.MongoClient(switchURL, options);
+        await mongoClient.connect();
+        datas = mongoClient.db("DatabaseGIS").collection("Entries");
+        console.log("Database connection", datas != undefined);
+    }
+    //eine Port-Nummer wird vergeben
+    //Wenn port nicht erreichbar ist, soll der Port den Wert 8100 annehmen --> localhost:8100
+    //Server und zugehörige listener werden erstellt/geaddet
     function handleListen() {
         console.log("Listening");
     }
@@ -26,24 +58,36 @@ var A09Server;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let adresse = _request.url;
-        let q = url.parse(adresse, true);
-        let pathname = q.pathname;
+        let _url = url.parse(adresse, true);
+        let pathname = _url.pathname;
+        //let jsonString: string = JSON.stringify(_url.query);
         //Adresse parsen (umwandeln):
         if (_request.url) {
-            if (pathname == "/json") {
-                let jsonString = JSON.stringify(q.query);
-                //_response.setHeader("content-type", "text/html; charset-utf-8");
-                _response.write(jsonString);
+            switch (pathname) {
+                case "retrieve":
+                    _response.write(receiveDatas());
+                    break;
+                case "noretrieve":
+                    break;
             }
-            else if (pathname == "/html") {
-                for (let key in q.query) {
-                    //_response.setHeader("content-type" , "json/application");
-                    _response.write(key + ":    " + q.query[key] + "<br/>");
-                }
-            }
-            console.log("Response successful");
-            _response.end();
         }
+        for (let key in _url.query) {
+            //_response.setHeader("content-type" , "json/application");
+            _response.write(key + ":    " + _url.query[key] + "<br/>");
+        }
+        storeDatas(_url.query);
+        console.log("Response successful");
+        _response.end();
     }
-})(A09Server = exports.A09Server || (exports.A09Server = {}));
+    function storeDatas(_datas) {
+        datas.insertOne(_datas);
+    }
+    async function receiveDatas() {
+        //tslint:disable-next-line: no-any
+        let receivedData;
+        receivedData = await datas.find().toArray();
+        //console.log(receivedData);
+        return receivedData;
+    }
+})(A11Server = exports.A11Server || (exports.A11Server = {}));
 //# sourceMappingURL=server.js.map
