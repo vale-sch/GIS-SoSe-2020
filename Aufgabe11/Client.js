@@ -6,7 +6,6 @@ var A11Server;
     let navLi1;
     let div;
     let text;
-    let url;
     async function init(_event) {
         div = document.querySelector("h1");
         text = document.createElement("p");
@@ -21,7 +20,7 @@ var A11Server;
     async function onClickButtonRet(_click) {
         let _isReceive = true;
         //let url: string = "http://localhost:8100";
-        url = "https://compaktdisk.herokuapp.com";
+        let url = "https://compaktdisk.herokuapp.com";
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
@@ -35,17 +34,18 @@ var A11Server;
         text.innerHTML = "JSON-Objekt: " + responseText;
         console.log(responseJson);
     }
-    function onClickButtonStoreData(_click) {
+    async function onClickButtonStoreData(_click) {
         let _isReceive = false;
         //let url: string = "http://localhost:8100";
-        url = "https://compaktdisk.herokuapp.com";
+        let url = "https://compaktdisk.herokuapp.com";
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         // url += "/";
         url += _isReceive ? "/receive" : "/storeData";
         url += "?" + query.toString();
-        text.innerHTML = "StoredData!";
+        let response = await fetch(url);
+        text.innerHTML = "StoredData:" + response;
     }
 })(A11Server || (A11Server = {}));
 //# sourceMappingURL=Client.js.map

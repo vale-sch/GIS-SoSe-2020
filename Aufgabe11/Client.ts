@@ -4,7 +4,7 @@ namespace A11Server {
   let navLi1: HTMLButtonElement;
   let div: HTMLDivElement;
   let text: HTMLParagraphElement;
-  let url: string;
+
   async function init(_event: Event): Promise<void> {
 
     div = <HTMLDivElement>document.querySelector("h1");
@@ -22,7 +22,7 @@ namespace A11Server {
   async function onClickButtonRet(_click: MouseEvent): Promise<void> {
     let _isReceive: boolean = true;
     //let url: string = "http://localhost:8100";
-    url = "https://compaktdisk.herokuapp.com";
+    let url: string = "https://compaktdisk.herokuapp.com";
     let formData: FormData = new FormData(document.forms[0]);
 
     // tslint:disable-next-line: no-any
@@ -41,10 +41,10 @@ namespace A11Server {
 
 
   }
-  function onClickButtonStoreData(_click: MouseEvent): void {
+  async function onClickButtonStoreData(_click: MouseEvent): Promise<void> {
     let _isReceive: boolean = false;
     //let url: string = "http://localhost:8100";
-    url = "https://compaktdisk.herokuapp.com";
+    let url: string = "https://compaktdisk.herokuapp.com";
     let formData: FormData = new FormData(document.forms[0]);
 
     // tslint:disable-next-line: no-any
@@ -53,9 +53,12 @@ namespace A11Server {
     url += _isReceive ? "/receive" : "/storeData";
     url += "?" + query.toString();
 
+    let response: Response = await fetch(url);
+    
 
 
-    text.innerHTML = "StoredData!";
+
+    text.innerHTML = "StoredData:" + response;
 
 
 

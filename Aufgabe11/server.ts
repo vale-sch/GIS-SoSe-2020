@@ -99,6 +99,7 @@ export namespace A11Server {
 
 
       else if (pathname == "/storeData") {
+      
         storeDatas(_url.query);
       }
 
@@ -115,6 +116,7 @@ export namespace A11Server {
 
     function storeDatas(_datas: Data): void {
       datas.insertOne(_datas);
+     
     }
     async function receiveDatas(): Promise<void> {
 
@@ -123,13 +125,14 @@ export namespace A11Server {
       receivedData = await datas.find().toArray();
       _response.write(JSON.stringify(receivedData));
       _response.end();
+    
 
     }
 
 
     
     console.log("Response successful");
-
+    
 
   }
 
