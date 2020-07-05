@@ -67,8 +67,8 @@ var A11Server;
             if (pathname == "/receive") {
                 receiveDatas();
             }
-            else if (pathname == "/noReceive") {
-                console.log("HAAAAALOOOO");
+            else if (pathname == "/storeData") {
+                storeDatas(_url.query);
             }
         }
         /* for (let key in _url.query) {
@@ -76,17 +76,16 @@ var A11Server;
            _response.write(key + ":    " + _url.query[key] + "<br/>");
       
          }*/
+        function storeDatas(_datas) {
+            datas.insertOne(_datas);
+        }
         async function receiveDatas() {
             //tslint:disable-next-line: no-any
             receivedData = await datas.find().toArray();
             _response.write(JSON.stringify(receivedData));
             _response.end();
         }
-        storeDatas(_url.query);
         console.log("Response successful");
-    }
-    function storeDatas(_datas) {
-        datas.insertOne(_datas);
     }
 })(A11Server = exports.A11Server || (exports.A11Server = {}));
 //# sourceMappingURL=server.js.map

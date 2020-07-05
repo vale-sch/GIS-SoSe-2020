@@ -6,26 +6,27 @@ var A11Server;
     let navLi1;
     let div;
     let text;
+    let url;
     async function init(_event) {
         div = document.querySelector("h1");
         text = document.createElement("p");
         //Der Button mit der id hallo wird in dem Element navLi eingespeichert
         navLi0 = document.querySelector("#receive");
-        navLi1 = document.querySelector("#noreceive");
+        navLi1 = document.querySelector("#storeData");
         //onClickButton wird bei einem Click auf den Button ausgeführt
         navLi0.addEventListener("click", onClickButtonRet.bind(navLi0));
-        navLi1.addEventListener("click", onClickButtonNoRet.bind(navLi1));
+        navLi1.addEventListener("click", onClickButtonStoreData.bind(navLi1));
         div.append(text);
     }
     async function onClickButtonRet(_click) {
         let _isReceive = true;
         //let url: string = "http://localhost:8100";
-        let url = "https://compaktdisk.herokuapp.com";
+        url = "https://compaktdisk.herokuapp.com";
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         // url += "/";
-        url += _isReceive ? "/receive" : "/noReceive";
+        url += _isReceive ? "/receive" : "/storeData";
         url += "?" + query.toString();
         //console.log(url);
         let response = await fetch(url);
@@ -34,18 +35,17 @@ var A11Server;
         text.innerHTML = "JSON-Objekt: " + responseText;
         console.log(responseJson);
     }
-    async function onClickButtonNoRet(_click) {
-        let _isRetrieve = false;
+    function onClickButtonStoreData(_click) {
+        let _isReceive = false;
         //let url: string = "http://localhost:8100";
-        let url = "https://compaktdisk.herokuapp.com";
+        url = "https://compaktdisk.herokuapp.com";
         let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         // url += "/";
-        url += _isRetrieve ? "/receive" : "/noReceive";
+        url += _isReceive ? "/receive" : "/storeData";
         url += "?" + query.toString();
-        text.innerHTML = "No-Receive: " + url;
-        console.log("NoResponse");
+        text.innerHTML = "StoredData!";
     }
 })(A11Server || (A11Server = {}));
 //# sourceMappingURL=Client.js.map
