@@ -65,27 +65,32 @@ var A11Server;
         //Adresse parsen (umwandeln):
         if (_request.url) {
             if (pathname == "/receive") {
-                receiveDatas();
+                receiveDatas(_response);
             }
             else if (pathname == "/storeData") {
-                storeDatas(_url.query);
+                storeDatas(_url.query, _response, _request);
+            }
+            if (pathname == "/clearData") {
+                datas.drop();
             }
         }
-        /* for (let key in _url.query) {
-           //_response.setHeader("content-type" , "json/application");
-           _response.write(key + ":    " + _url.query[key] + "<br/>");
-      
-         }*/
-        function storeDatas(_datas) {
-            datas.insertOne(_datas);
+    }
+    function storeDatas(_datas, _response, _request) {
+        let adresse = _request.url;
+        let _url = url.parse(adresse, true);
+        for (let key in _url.query) {
+            //_response.setHeader("content-type" , "json/application");
+            _response.write(key + ": " + _url.query[key] + "<br/>");
         }
-        async function receiveDatas() {
-            //tslint:disable-next-line: no-any
-            receivedData = await datas.find().toArray();
-            _response.write(JSON.stringify(receivedData));
-            _response.end();
-        }
-        console.log("Response successful");
+        datas.insertOne(_datas);
+        _response.end();
+    }
+    console.log("Response successful");
+    async function receiveDatas(_response) {
+        //tslint:disable-next-line: no-any
+        receivedData = await datas.find().toArray();
+        _response.write(JSON.stringify(receivedData));
+        _response.end();
     }
 })(A11Server = exports.A11Server || (exports.A11Server = {}));
 //# sourceMappingURL=server.js.map

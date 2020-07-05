@@ -10,19 +10,20 @@
 
 <body>
     <h2>Login</h2>
-    <!--http://localhost:8100-->
-    <form method="GET" action="https://compaktdisk.herokuapp.com">
+    <!--https://compaktdisk.herokuapp.com-->
+    <form method="GET" action="https://compaktdisk.herokuapp.com" id="formular">
         <label for="Vorname">First name:</label><br>
-        <input type="text" id="fname" name="Vorname" value="John"><br>
+        <input type="text" id="fname" name="Vorname" value="z.B.John"><br>
         <label for="Nachname">Last Name:</label><br>
-        <input type="text" id="lname" name="Nachname" value="Deer"><br>
+        <input type="text" id="lname" name="Nachname" value="z.B.Deer"><br>
         <label for="Email">E-Mail:</label><br>
-        <input type="email" id="email" name="Email" value="DeerJohn@provider.de"><br>
+        <input type="email" id="email" name="Email" value="z.B.DeerJohn@provider.de"><br>
         <label for="Passwort">Passwort:</label><br>
-        <input type="password" id="pass" name="Passwort" value="Apfelstrudel2323"><br>
-        <button type="button" id="storeData">Store-Data</button>
+        <input type="password" id="pass" name="Passwort" value="z.B.Apfelstrudel2323"><br>
+        <button form="formular" type="reset" id="storeData">Store-Data</button>
         <button type="button" id="receive">Receive-Datas</button>
-        <button type="button">Trigger Server</button>
+        <button type="button" id="clear">Clear Database</button>
+        <button type="submit">Trigger Server</button>
 
     </form>
     <h1> Ausgabe:</h1>

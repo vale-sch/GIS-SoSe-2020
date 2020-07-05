@@ -59,19 +59,10 @@ export namespace A11Server {
     await mongoClient.connect();
     datas = mongoClient.db("DatabaseGIS").collection("Entries");
     console.log("Database connection", datas != undefined);
-
-
-
-
   }
-
   //eine Port-Nummer wird vergeben
-
   //Wenn port nicht erreichbar ist, soll der Port den Wert 8100 annehmen --> localhost:8100
-
   //Server und zugehörige listener werden erstellt/geaddet
-
-
   function handleListen(): void {
     console.log("Listening");
   }
@@ -89,53 +80,45 @@ export namespace A11Server {
 
     //Adresse parsen (umwandeln):
 
-
     if (_request.url) {
       if (pathname == "/receive") {
+        receiveDatas(_response);
 
-        receiveDatas();
       }
-
-
-
       else if (pathname == "/storeData") {
-      
-        storeDatas(_url.query);
+        storeDatas(_url.query, _response, _request);
+
       }
-
-
-
+      if (pathname == "/clearData") {
+        datas.drop();
+      
+      }
     }
-
-
-    /* for (let key in _url.query) {
-       //_response.setHeader("content-type" , "json/application");
-       _response.write(key + ":    " + _url.query[key] + "<br/>");
-  
-     }*/
-
-    function storeDatas(_datas: Data): void {
-      datas.insertOne(_datas);
-     
-    }
-    async function receiveDatas(): Promise<void> {
-
-      //tslint:disable-next-line: no-any
-
-      receivedData = await datas.find().toArray();
-      _response.write(JSON.stringify(receivedData));
-      _response.end();
-    
-
-    }
-
-
-    
-    console.log("Response successful");
-    
-
   }
 
+  function storeDatas(_datas: Data, _response: Http.ServerResponse, _request: Http.IncomingMessage): void {
+    let adresse: string = <string>_request.url;
+    let _url: url.UrlWithParsedQuery = url.parse(adresse, true);
+    for (let key in _url.query) {
+      //_response.setHeader("content-type" , "json/application");
+      _response.write(key + ": " + _url.query[key] + "<br/>");
+
+    }
+    datas.insertOne(_datas);
 
 
+    _response.end();
+  }
+
+  console.log("Response successful");
+
+  async function receiveDatas(_response: Http.ServerResponse): Promise<void> {
+
+    //tslint:disable-next-line: no-any
+
+    receivedData = await datas.find().toArray();
+    _response.write(JSON.stringify(receivedData));
+
+    _response.end();
+  }
 }
