@@ -91,7 +91,7 @@ export namespace A11Server {
       }
       if (pathname == "/clearData") {
         datas.drop();
-      
+
       }
     }
   }
@@ -117,8 +117,15 @@ export namespace A11Server {
     //tslint:disable-next-line: no-any
 
     receivedData = await datas.find().toArray();
-    
-    _response.write(JSON.stringify(receivedData));
+    for (let index: number = 0; index < receivedData.length; index++) {
+      let current: Data = <Data>receivedData[index];
+      for (let key in current) {
+        _response.write("key" + current[key]?.toString() + "<br>");
+      }
+      
+
+    }
+   // _response.write(JSON.stringify(receivedData));
 
     _response.end();
   }

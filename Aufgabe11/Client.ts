@@ -79,6 +79,7 @@ namespace A11Server {
     //console.log(url);
     
     let response: Response = await fetch(url);
+    console.log(response);
     text.innerHTML = "Database cleared";
   }
 }
