@@ -54,11 +54,11 @@ namespace A11Server {
     url += "?" + query.toString();
 
     let response: Response = await fetch(url);
-    
+    let responseText: string = await response.text();
 
 
 
-    text.innerHTML = "StoredData:" + response;
+    text.innerHTML = "StoredData:" + responseText;
 
 
 

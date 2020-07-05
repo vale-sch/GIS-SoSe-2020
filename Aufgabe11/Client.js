@@ -45,7 +45,8 @@ var A11Server;
         url += _isReceive ? "/receive" : "/storeData";
         url += "?" + query.toString();
         let response = await fetch(url);
-        text.innerHTML = "StoredData:" + response;
+        let responseText = await response.text();
+        text.innerHTML = "StoredData:" + responseText;
     }
 })(A11Server || (A11Server = {}));
 //# sourceMappingURL=Client.js.map
