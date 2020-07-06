@@ -123,7 +123,7 @@ export namespace A11Server {
 
         let current: Data = <Data>receivedData[index];
         for (let key in current) {
-          console.log(_response.write(key + ": " + current[key]?.toString() + "<br>"));
+          _response.write(key + ": " + current[key]?.toString() + "<br>");
         }
         _response.write("<br>");
       }

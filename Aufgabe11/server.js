@@ -93,7 +93,7 @@ var A11Server;
             if (receivedData[index]) {
                 let current = receivedData[index];
                 for (let key in current) {
-                    console.log(_response.write(key + ": " + current[key]?.toString() + "<br>"));
+                    _response.write(key + ": " + current[key]?.toString() + "<br>");
                 }
                 _response.write("<br>");
             }
