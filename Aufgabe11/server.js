@@ -89,20 +89,15 @@ var A11Server;
     async function receiveDatas(_response) {
         //tslint:disable-next-line: no-any
         receivedData = await datas.find().toArray();
-        /*for (let index: number = 0; index <= receivedData.length; index++) {
-    
-          if (receivedData[index]) {
-    
-            let current: Data = <Data>receivedData[index];
-            for (let key in current) {
-              _response.write(key + ": " + current[key]?.toString() + "<br>");
+        for (let index = 0; index <= receivedData.length; index++) {
+            if (receivedData[index]) {
+                let current = receivedData[index];
+                for (let key in current) {
+                    _response.write(key + ": " + current[key]?.toString() + "<br>");
+                }
+                _response.write("<br>");
             }
-            _response.write("<br>");
-          }
-    
-    
-    
-        }*/
+        }
         _response.write(JSON.stringify(receivedData));
         _response.end();
     }
