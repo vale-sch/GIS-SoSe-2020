@@ -93,7 +93,7 @@ var A11Server;
             if (receivedData[index]) {
                 let current = receivedData[index];
                 for (let key in current) {
-                    _response.write(key + ": " + JSON.stringify(current[key]?.toString()) + "<br>");
+                    _response.write(key + ": " + JSON.stringify(current[key]) + "<br>");
                 }
                 _response.write("<br>");
             }
