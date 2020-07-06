@@ -93,13 +93,13 @@ var A11Server;
             if (receivedData[index]) {
                 let current = receivedData[index];
                 for (let key in current) {
-                    _response.write(key + ": " + current[key]?.toString() + "<br>");
+                    console.log(_response.write(key + ": " + current[key]?.toString() + "<br>"));
                 }
                 _response.write("<br>");
             }
         }
-        _response.write(JSON.stringify(receivedData));
         _response.end();
+        //_response.write(JSON.stringify(receivedData));
     }
 })(A11Server = exports.A11Server || (exports.A11Server = {}));
 //# sourceMappingURL=server.js.map
