@@ -1,0 +1,233 @@
+[{
+        "kategorie": "Waffel",
+        "image": "/pictures/Waffeln/StandardWaffel.png",
+        "beschreibung": "Preis/Leistung Oberhammer, wir sind doch aber Genießer, nicht wahr?",
+        "preis": 0.79,
+        "stück": 0,
+        "name": "StandardWaffel"
+    },
+    {
+        "kategorie": "Waffel",
+        "image": "/pictures/Waffeln/PremiumWaffel.png",
+        "beschreibung": "Die Beste und Knusprigste die es je gab, ihr werdet es nicht bereuen!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "PremiumWaffel"
+    },
+    {
+        "kategorie": "Waffel",
+        "image": "/pictures/Waffeln/SchokoWaffel.png",
+        "beschreibung": "PremiumWaffel gepaart mit der geschmeidigsten Schokoummantelung, die es je gab.",
+        "preis": 1.99,
+        "stück": 0,
+        "name": "SchokoWaffel"
+    },
+    {
+        "kategorie": "Waffel",
+        "image": "/pictures/Waffeln/KinderWaffel.png",
+        "beschreibung": "PremiumWaffel gepaart mit leckerer Schokoummantelung und kleinen süßen Smarties.",
+        "preis": 1.99,
+        "stück": 0,
+        "name": "KinderWaffel"
+    },
+    {
+        "kategorie": "Waffel",
+        "image": "/pictures/Waffeln/KokosWaffel.png",
+        "beschreibung": "PremiumWaffel gepaart mit frischen Kokosraspeln aus der Zukunft",
+        "preis": 2.49,
+        "stück": 0,
+        "name": "KokosWaffel"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Amarena.png",
+        "beschreibung": "Amarena, die Wahl der Genießer & Schnabuleuren!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Amerenaeis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Schoko.png",
+        "beschreibung": "Schokolade, direkt von Willi Wonkah aus dem Hinterhof abgezapft!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Schokoeis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Erdbeere.png",
+        "beschreibung": "Erbeere, frisch gepflückt vom Feld und in Form gebracht!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Erdbeereis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Himbeere.png",
+        "beschreibung": "Himbeere, frisch gepflückt vom Himbeer-Wonderland!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Himbeereis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Zitrone.png",
+        "beschreibung": "Zitrone, gefrorener Zitronensaft mit 99.5% Zucker, wir wollen ja nicht lügen!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Zitroneneis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Stracciatella.png",
+        "beschreibung": "Stracciatella, die Schokostückchen haben wir per Hand in das Eis gedrückt!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Stracciatellaeis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Pistazie.png",
+        "beschreibung": "Pistazie, die Eissorte die nur bei uns und in Italien gut schmeckt!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Pistazieneis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Banane.png",
+        "beschreibung": "Banane, finden wir persönlich wirklich ekelhaft und zuwider!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Bananeneis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Joghurt.png",
+        "beschreibung": "Joghurt, Bio-Naturjoghurt einfach eingefroren und in die Eisform gepackt!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Joghurteis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Kaugummi.png",
+        "beschreibung": "Kaugummi, für die, die wirklich nie genug kriegen und ihr Limit testen wollen!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Kaugummieis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Minze.png",
+        "beschreibung": "Minze, für die extra Vaganten und komplett gestörten unter euch!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Minzeeis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Vanille.png",
+        "beschreibung": "Vanille, geschrotete Vanilleschotten gepresst und für euch bereit gemacht!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Vanilleeis"
+    },
+    {
+        "kategorie": "Eis",
+        "image": "/pictures/Eiskugeln/Nuss.png",
+        "beschreibung": "Nuss, wir haben die Nuss-Bäume für euch ordentlich geschüttelt!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Nusseis"
+    },
+    {
+        "kategorie": "Stecksachen",
+        "image": "/pictures/Toppings/Stecksachen/WaffelStick.png",
+        "beschreibung": "Waffelstick, der Klassiker seit 20 v.Chr., bis heute nach wie vor Bestseller!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "WaffelStick"
+    },
+    {
+        "kategorie": "Stecksachen",
+        "image": "/pictures/Toppings/Stecksachen/Kirsche.png",
+        "beschreibung": "Kirsche, die leckerste und gleichzeitig teurste Kirsche die du je essen wirst!",
+        "preis": 0.49,
+        "stück": 0,
+        "name": "Kirsche"
+    },
+    {
+        "kategorie": "Stecksachen",
+        "image": "/pictures/Toppings/Stecksachen/Waffel.png",
+        "beschreibung": "Waffel, damit lässt sich auch gut Frisbee spielen, anonsten schmeckt sie auch super!",
+        "preis": 1.99,
+        "stück": 0,
+        "name": "rundeWaffel"
+    },
+    {
+        "kategorie": "Stecksachen",
+        "image": "/pictures/Toppings/Stecksachen/Sahne.png",
+        "beschreibung": "Sahne, nur für leute unter Übergewicht, für den kleinen extra kick!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "Sahne"
+    },
+    {
+        "kategorie": "Soßen",
+        "image": "/pictures/Toppings/Soßen/Caramel.png",
+        "beschreibung": "Caramel-Soße, einmal Geschmacksexplosion aufs Haus!",
+        "preis": 0.19,
+        "stück": 0,
+        "name": "CaramelSoße"
+    },
+    {
+        "kategorie": "Soßen",
+        "image": "/pictures/Toppings/Soßen/Schoko.png",
+        "beschreibung": "Schoko-Soße, mhm lecker noch mehr Schoko = noch mehr Spaß!",
+        "preis": 0.99,
+        "stück": 0,
+        "name": "SchokoSoße"
+    },
+    {
+        "kategorie": "Soßen",
+        "image": "/pictures/Toppings/Soßen/Minze.png",
+        "beschreibung": "Minze-Soße, ehrlich gesagt ganz geil, aber Achtung, das ist nicht für jedermann!",
+        "preis": 0.99,
+        "stück": 0,
+        "name": "MinzSoße"
+    },
+    {
+        "kategorie": "Soßen",
+        "image": "/pictures/Toppings/Soßen/Vanille.png",
+        "beschreibung": "Vanille-Soße, gepaart mit Schokoeis brutale Kombi!",
+        "preis": 0.99,
+        "stück": 0,
+        "name": "VanilleSoße"
+    },
+    {
+        "kategorie": "Streusel",
+        "image": "/pictures/Toppings/Streusel/Bunt.png",
+        "beschreibung": "Bunte-Streusel, einfach einmal das ganze Sortiment drüber geschüttet!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "BunteStreusel"
+    },
+    {
+        "kategorie": "Streusel",
+        "image": "/pictures/Toppings/Streusel/Mandel.png",
+        "beschreibung": "Mandel-Splitter, Mashahlla, das haben wir sogar nicht kommen sehen!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "MandelStreusel"
+    },
+    {
+        "kategorie": "Streusel",
+        "image": "/pictures/Toppings/Streusel/Schoko.png",
+        "beschreibung": "Schoko-Streusel, natürlich gibt es auch noch Schokostreusel ;)!",
+        "preis": 1.49,
+        "stück": 0,
+        "name": "SchokoStreusel"
+    }
+]

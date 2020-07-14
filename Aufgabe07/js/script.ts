@@ -125,7 +125,7 @@ namespace Abgabe07 {
         localStorage.setItem(_article.titel, inhalt);
 
     }
-
+    
     //Funktion/EventListener für Preis-aufaddieren/Artikelcounter
     function onClickButton(this: Artikel, _click: MouseEvent): void {
         articlePriceCounter += this.preis;
@@ -166,11 +166,11 @@ namespace Abgabe07 {
         let onClick: String = <String>this.getAttribute("href");
         switch (onClick) {
             case "#Everything": showEverthing();
-                break;
+                                break;
             case "#Sales": showSales();
-                break;
+                           break;
             case "#Favoriten": showFavorites();
-                break;
+                               break;
         }
     }
 
